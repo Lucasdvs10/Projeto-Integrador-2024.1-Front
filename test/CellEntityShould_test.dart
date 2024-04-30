@@ -9,7 +9,7 @@ void main() {
     expect(cellEntity.walkable, true);
   });
 
-  test('fCost must be 10', () {
+  test('fCost must be 10 when targetCell is 3 positions away from currentCell and startCell is 1 position away from currentCell', () {
     CellEntity currentCell = CellEntity(1, 1, true);
     CellEntity startCell = CellEntity(1, 0, true);
     CellEntity targetCell = CellEntity(1, 4, true);
