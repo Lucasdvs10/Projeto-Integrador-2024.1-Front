@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/PathFinding/CellEntity.dart';
 
 void main() {
   runApp(const MyApp());
