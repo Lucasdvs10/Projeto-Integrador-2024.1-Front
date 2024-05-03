@@ -3,17 +3,32 @@ class CellEntity {
   late int column;
   late bool walkable;
 
-  late int _gCost;
-  late int _hCost;
-  late int _fCost;
+  int _gCost = 0;
+  int _hCost = 0;
+  int _fCost = 0;
+  late CellEntity? _previousCell = null;
 
   CellEntity(this.row, this.column, this.walkable);
+
+  CellEntity.WithValues(this.row, this.column, this.walkable, this._hCost,
+      this._gCost, this._fCost, this._previousCell);
+
+  void setPreviousCellAndCalculateFCost(
+      CellEntity previousCell, CellEntity startCell, CellEntity targetCell) {
+    _previousCell = previousCell;
+    setGAndHCosts(startCell, targetCell);
+  }
 
   void setGAndHCosts(CellEntity startCell, CellEntity targetCell) {
     //Por questões de performance, eu não estou tirando a raiz do teorema de pitagoras
 
-    _gCost = (startCell.row - row) * (startCell.row - row) +
-        (startCell.column - column) * (startCell.column - column);
+    if (_previousCell != null) {
+      _gCost = _previousCell!.GetGCost() +
+          (_previousCell!.row - row) * (_previousCell!.row - row) +
+          (_previousCell!.column - column) * (_previousCell!.column - column);
+    } else {
+      _gCost = 0;
+    }
 
     _hCost = (targetCell.row - row) * (targetCell.row - row) +
         (targetCell.column - column) * (targetCell.column - column);
@@ -21,7 +36,26 @@ class CellEntity {
     _fCost = _hCost + _gCost;
   }
 
-  int getFCost() {
-    return _fCost;
+  int GetGCost() => _gCost;
+  int GetHCost() => _hCost;
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return "row: $row, column: $column, walkable: $walkable, gCost: $_gCost, hCost: $_hCost, fCost: $_fCost";
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    return other is CellEntity &&
+        other.row == row &&
+        other.column == column &&
+        other.walkable == walkable;
+  }
+
+  void setPreviousCell(CellEntity previousCell) => _previousCell = previousCell;
+  CellEntity? getPreviousCell() => _previousCell;
+
+  int getFCost() => _fCost;
 }

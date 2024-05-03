@@ -9,13 +9,15 @@ void main() {
     expect(cellEntity.walkable, true);
   });
 
-  test('Set fCost with value 10 when targetCell is 3 positions away from currentCell and startCell is 1 position away from currentCell', () {
+  test(
+      'Set fCost with value 10 when targetCell is 3 positions away from currentCell and startCell is 1 position away from currentCell',
+      () {
     CellEntity currentCell = CellEntity(1, 1, true);
     CellEntity startCell = CellEntity(1, 0, true);
-    CellEntity targetCell = CellEntity(1, 4, true);
+    CellEntity targetCell = CellEntity(1, 2, true);
 
-    currentCell.setGAndHCosts(startCell, targetCell);
+    currentCell.setPreviousCellAndCalculateFCost(startCell, startCell, targetCell);
 
-    expect(currentCell.getFCost(), 10);
+    expect(currentCell.getFCost(), 2);
   });
 }
