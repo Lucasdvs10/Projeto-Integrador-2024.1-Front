@@ -22,7 +22,6 @@ class AStarCalculator {
 
       openSet.remove(currentCell);
       closedSet.add(currentCell);
-
       _CalculateFCostForCurrentNeighbors(currentCell, startCell, targetCell);
 
       Set<CellEntity> neighborsSet = _GetNeighborsSet(currentCell);
