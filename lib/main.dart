@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Widget/booth-widget.dart';
+import 'package:projeto_integrador/Widget/map-widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +17,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black12),
           useMaterial3: true,
         ),
-        home: BoothWidget(
-          color: Colors.green,
-          onPressed: () {
-            print("Salve");
-          },
-          entryBoothPoint: (1, 1),
-          superiorLeftPoint: (2, 2),
-          inferiorRightPoint: (3, 3),
-        ));
+        home: MapWidget(boothsList: [], matrixSize: (30, 59)));
   }
 }
