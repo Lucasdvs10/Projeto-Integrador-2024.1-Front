@@ -5,11 +5,12 @@ import 'package:projeto_integrador/Widget/booth-widget.dart';
 class MapWidget extends StatefulWidget {
   late final (int, int) matrixSize;
   late final List<BoothWidget> boothsList;
-  late GridMap gridMapEntity;
+  late final GridMap gridMapEntity;
 
   MapWidget({super.key, required this.matrixSize, required this.boothsList}) {
     gridMapEntity = GridMap.AllWalkable(matrixSize.$1, matrixSize.$2);
-    print("Classe publica");
+
+    //Todo: alterar as cores dos estandes seguindo uma lógica para não ter cores iguais adjacentes
   }
   @override
   State<MapWidget> createState() =>
@@ -33,6 +34,16 @@ class _MapWidgetState extends State<MapWidget> {
             ),
         growable: false);
 
-    //Criar os estandes baseado na lista de estandes
+    for (var booth in boothsList) {
+      for (int i = booth.superiorLeftPoint.$1;
+          i <= booth.inferiorRightPoint.$1;
+          i++) {
+        for (int j = booth.superiorLeftPoint.$2;
+            j <= booth.inferiorRightPoint.$2;
+            j++) {
+          renderizedGrid[i * matrixSize.$1 + j] = booth;
+        }
+      }
+    }
   }
 }

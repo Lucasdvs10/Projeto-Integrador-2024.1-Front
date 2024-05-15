@@ -4,7 +4,7 @@ class BoothWidget extends StatelessWidget {
   late final (int, int) superiorLeftPoint;
   late final (int, int) inferiorRightPoint;
   late final (int, int) entryBoothPoint;
-  late final Color color;
+  late Color color;
   late final Function() onPressed;
   BoothWidget(
       {super.key,
@@ -17,7 +17,10 @@ class BoothWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed,
+      onPressed: () {
+        onPressed();
+        print("Chamando o A* para as coordenadas $entryBoothPoint");
+      },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
         overlayColor: MaterialStateProperty.all<Color>(color),
