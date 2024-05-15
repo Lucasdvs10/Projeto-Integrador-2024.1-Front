@@ -4,6 +4,14 @@ import 'package:projeto_integrador/PathFinding/GridMap.dart';
 class AStarCalculator {
   late GridMap _gridMap;
 
+  List<CellEntity> CalculatePathByCoordinates((int, int) startPoint, (int, int) endPoint) {
+    CellEntity startCell =
+        _gridMap.getCellsMatrix()[startPoint.$1][startPoint.$2];
+    CellEntity endCell = _gridMap.getCellsMatrix()[endPoint.$1][endPoint.$2];
+
+    return CalculatePath(startCell, endCell);
+  }
+
   List<CellEntity> CalculatePath(CellEntity startCell, CellEntity targetCell) {
     startCell.setGAndHCosts(startCell, targetCell);
 

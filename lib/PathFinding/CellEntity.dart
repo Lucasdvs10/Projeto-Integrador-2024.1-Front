@@ -42,7 +42,7 @@ class CellEntity {
   @override
   String toString() {
     // TODO: implement toString
-    return "row: $row, column: $column, walkable: $walkable, gCost: $_gCost, hCost: $_hCost, fCost: $_fCost";
+    return "Cell(row: $row, column: $column, walkable: $walkable)";
   }
 
   @override

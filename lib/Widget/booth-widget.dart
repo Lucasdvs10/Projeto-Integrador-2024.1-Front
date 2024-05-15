@@ -5,20 +5,20 @@ class BoothWidget extends StatelessWidget {
   late final (int, int) inferiorRightPoint;
   late final (int, int) entryBoothPoint;
   late Color color;
-  late final Function() onPressed;
+  late Function((int, int)) callbackFunction;
   BoothWidget(
       {super.key,
       required this.superiorLeftPoint,
       required this.inferiorRightPoint,
       required this.entryBoothPoint,
       required this.color,
-      required this.onPressed}) {}
+      }) {}
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        onPressed();
+        callbackFunction(entryBoothPoint);
         print("Chamando o A* para as coordenadas $entryBoothPoint");
       },
       style: ButtonStyle(
