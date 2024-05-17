@@ -11,8 +11,6 @@ class MapWidget extends StatefulWidget {
 
   MapWidget({super.key, required this.matrixSize, required this.boothsList}) {
     gridMapEntity = GridMap.AllWalkable(matrixSize.$1, matrixSize.$2);
-
-    //Todo: alterar as cores dos estandes seguindo uma lógica para não ter cores iguais adjacentes
   }
   @override
   State<MapWidget> createState() =>
@@ -21,6 +19,7 @@ class MapWidget extends StatefulWidget {
 
 class _MapWidgetState extends State<MapWidget> {
   late List<Widget> renderizedGrid;
+  late List<Widget> pathlessGrid;
   late final AStarCalculator aStarCalculator;
   List<CellEntity> pathBeingRendered = [];
 
@@ -41,23 +40,25 @@ class _MapWidgetState extends State<MapWidget> {
 
   void RenderPath() {
     setState(() {
+      List<Widget> newRenderizedGrid = List.from(pathlessGrid);
+
       for (var cell in pathBeingRendered) {
-        renderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
+        newRenderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
             Container(color: Colors.blue);
       }
-      // print(pathBeingRendered);
+      renderizedGrid = newRenderizedGrid;
     });
   }
 
   _MapWidgetState((int, int) matrixSize, List<BoothWidget> boothsList,
       GridMap gridMapEntity) {
     aStarCalculator = AStarCalculator(gridMapEntity);
-    renderizedGrid = List<Widget>.generate(
-        matrixSize.$1 * matrixSize.$2,
-        (index) => Container(
-              color: Colors.white,
-            ),
-        growable: false);
+    renderizedGrid =
+        List<Widget>.generate(matrixSize.$1 * matrixSize.$2, (int index) {
+      return Container(
+        color: Colors.white,
+      );
+    }, growable: false);
 
     for (var booth in boothsList) {
       for (int i = booth.superiorLeftPoint.$1;
@@ -69,9 +70,10 @@ class _MapWidgetState extends State<MapWidget> {
           booth.callbackFunction = CalculateAndRenderPath;
           renderizedGrid[i * matrixSize.$2 + j] = booth;
 
-          if (i != booth.entryBoothPoint.$1 && j != booth.entryBoothPoint.$2) {
-            gridMapEntity.setCellUnwalkableByPosition(i, j);
-          }
+          pathlessGrid = List.from(renderizedGrid);
+          // if (i != booth.entryBoothPoint.$1 && j != booth.entryBoothPoint.$2) {
+          //   gridMapEntity.setCellUnwalkableByPosition(i, j);
+          // }
         }
       }
     }

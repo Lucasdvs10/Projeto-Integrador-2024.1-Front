@@ -6,13 +6,13 @@ class BoothWidget extends StatelessWidget {
   late final (int, int) entryBoothPoint;
   late Color color;
   late Function((int, int)) callbackFunction;
-  BoothWidget(
-      {super.key,
-      required this.superiorLeftPoint,
-      required this.inferiorRightPoint,
-      required this.entryBoothPoint,
-      required this.color,
-      }) {}
+  BoothWidget({
+    super.key,
+    required this.superiorLeftPoint,
+    required this.inferiorRightPoint,
+    required this.entryBoothPoint,
+    required this.color,
+  }) {}
 
   @override
   Widget build(BuildContext context) {

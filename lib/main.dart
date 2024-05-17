@@ -34,10 +34,11 @@ class MyApp extends StatelessWidget {
             color: Colors.yellow[800]!,
             superiorLeftPoint: (0, 17),
             inferiorRightPoint: (3, 20),
-            entryBoothPoint: (11, 11),
+            entryBoothPoint: (3, 17),
           )
         ], matrixSize: (
-          59,30
+          59,
+          30
         )));
   }
 }
