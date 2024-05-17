@@ -41,7 +41,6 @@ class CellEntity {
 
   @override
   String toString() {
-    // TODO: implement toString
     return "Cell(row: $row, column: $column, walkable: $walkable)";
   }
 
