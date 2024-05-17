@@ -71,9 +71,7 @@ class _MapWidgetState extends State<MapWidget> {
           renderizedGrid[i * matrixSize.$2 + j] = booth;
 
           pathlessGrid = List.from(renderizedGrid);
-          // if (i != booth.entryBoothPoint.$1 && j != booth.entryBoothPoint.$2) {
-          //   gridMapEntity.setCellUnwalkableByPosition(i, j);
-          // }
+          gridMapEntity.setCellUnwalkableByPosition(i, j);
         }
       }
     }

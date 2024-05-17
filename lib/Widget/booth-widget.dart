@@ -10,16 +10,16 @@ class BoothWidget extends StatelessWidget {
     super.key,
     required this.superiorLeftPoint,
     required this.inferiorRightPoint,
-    required this.entryBoothPoint,
     required this.color,
-  }) {}
+  }) {
+    entryBoothPoint = (inferiorRightPoint.$1 + 1, inferiorRightPoint.$2 - 2);
+  }
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
         callbackFunction(entryBoothPoint);
-        print("Chamando o A* para as coordenadas $entryBoothPoint");
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
