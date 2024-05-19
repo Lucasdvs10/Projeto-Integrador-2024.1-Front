@@ -40,13 +40,12 @@ class _MapWidgetState extends State<MapWidget> {
 
   void RenderPath() {
     setState(() {
-      List<Widget> newRenderizedGrid = List.from(pathlessGrid);
+      renderizedGrid = List.from(pathlessGrid);
 
       for (var cell in pathBeingRendered) {
-        newRenderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
+        renderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
             Container(color: Colors.blue);
       }
-      renderizedGrid = newRenderizedGrid;
     });
   }
 
