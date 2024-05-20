@@ -28,8 +28,14 @@ class _MapWidgetState extends State<MapWidget> {
     return GridView.count(crossAxisCount: 30, children: renderizedGrid);
   }
 
-  void CalculateAndRenderPath((int, int) endPoint) {
-    CalculatePath((0, 0), endPoint);
+  void CalculateAndRenderPath((int, int) startPoint, (int, int) endPoint) {
+    bool itsTheSamePathAgain = pathBeingRendered.isNotEmpty &&
+        pathBeingRendered.last.getCoordinates() == endPoint &&
+        pathBeingRendered.first.getCoordinates() == startPoint;
+
+    if (itsTheSamePathAgain) return;
+
+    CalculatePath(startPoint, endPoint);
     RenderPath();
   }
 

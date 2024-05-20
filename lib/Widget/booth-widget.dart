@@ -5,7 +5,7 @@ class BoothWidget extends StatelessWidget {
   late final (int, int) inferiorRightPoint;
   late final (int, int) entryBoothPoint;
   late Color color;
-  late Function((int, int)) callbackFunction;
+  late Function((int, int), (int, int)) callbackFunction;
   BoothWidget({
     super.key,
     required this.superiorLeftPoint,
@@ -25,7 +25,7 @@ class BoothWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        callbackFunction(entryBoothPoint);
+        callbackFunction((0,0), entryBoothPoint);
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),

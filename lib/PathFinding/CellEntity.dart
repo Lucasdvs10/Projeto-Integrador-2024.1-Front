@@ -38,6 +38,8 @@ class CellEntity {
 
   int GetGCost() => _gCost;
   int GetHCost() => _hCost;
+  int getFCost() => _fCost;
+  (int,int) getCoordinates() => (row, column);
 
   @override
   String toString() {
@@ -56,5 +58,4 @@ class CellEntity {
   void setPreviousCell(CellEntity previousCell) => _previousCell = previousCell;
   CellEntity? getPreviousCell() => _previousCell;
 
-  int getFCost() => _fCost;
 }
