@@ -67,10 +67,10 @@ class _MapWidgetState extends State<MapWidget> {
 
     for (var booth in boothsList) {
       for (int i = booth.superiorLeftPoint.$1;
-          i <= booth.superiorLeftPoint.$1 + booth.sizes.$1;
+          i <= booth.superiorLeftPoint.$1 + booth.sizes.$1 - 1;
           i++) {
         for (int j = booth.superiorLeftPoint.$2;
-            j <= booth.superiorLeftPoint.$2 + booth.sizes.$2;
+            j <= booth.superiorLeftPoint.$2 + booth.sizes.$2 - 1;
             j++) {
           booth.callbackFunction = CalculateAndRenderPath;
           renderizedGrid[i * matrixSize.$2 + j] = booth;
