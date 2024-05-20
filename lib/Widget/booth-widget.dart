@@ -11,8 +11,14 @@ class BoothWidget extends StatelessWidget {
     required this.superiorLeftPoint,
     required this.inferiorRightPoint,
     required this.color,
+    (int, int)? entryBoothPoint,
   }) {
-    entryBoothPoint = (inferiorRightPoint.$1 + 1, inferiorRightPoint.$2 - 2);
+    if (entryBoothPoint == null) {
+      this.entryBoothPoint =
+          (inferiorRightPoint.$1 + 1, inferiorRightPoint.$2 - 2);
+    } else {
+      this.entryBoothPoint = entryBoothPoint;
+    }
   }
 
   @override

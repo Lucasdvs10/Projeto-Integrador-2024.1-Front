@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
             color: Colors.green,
             superiorLeftPoint: (0, 10),
             inferiorRightPoint: (3, 13),
+            entryBoothPoint: (2, 9),
           ),
           BoothWidget(
             color: Colors.red,
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
             color: Colors.yellow[800]!,
             superiorLeftPoint: (0, 17),
             inferiorRightPoint: (3, 20),
+            entryBoothPoint: (4, 17),
           )
         ], matrixSize: (
           59,
