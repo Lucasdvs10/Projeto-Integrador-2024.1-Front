@@ -7,23 +7,23 @@ class AllBoothsMap {
       BoothWidget(
         color: Colors.green,
         superiorLeftPoint: (0, 10),
-        inferiorRightPoint: (3, 13),
+        sizes: (4, 4),
       ),
       BoothWidget(
         color: Colors.red,
         superiorLeftPoint: (7, 10),
-        inferiorRightPoint: (11, 13),
+        sizes: (4, 4),
       ),
       BoothWidget(
         color: Colors.yellow[800]!,
         superiorLeftPoint: (0, 17),
-        inferiorRightPoint: (3, 20),
-        entryBoothPoint: (4, 18),
+        sizes: (4, 4),
+        entryBoothPoint: (0, 16),
       ),
       BoothWidget(
         color: Colors.green,
         superiorLeftPoint: (0, 10),
-        inferiorRightPoint: (3, 13),
+        sizes: (4, 4),
       ),
     ];
   }

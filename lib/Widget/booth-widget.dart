@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 class BoothWidget extends StatelessWidget {
   late final (int, int) superiorLeftPoint;
-  late final (int, int) inferiorRightPoint;
   late final (int, int) entryBoothPoint;
+  late final (int, int) sizes;
   late Color color;
   late Function((int, int), (int, int)) callbackFunction;
   BoothWidget({
     super.key,
     required this.superiorLeftPoint,
-    required this.inferiorRightPoint,
+    required this.sizes,
     required this.color,
     (int, int)? entryBoothPoint,
   }) {
     if (entryBoothPoint == null) {
       this.entryBoothPoint =
-          (inferiorRightPoint.$1 + 1, inferiorRightPoint.$2 - 2);
+          (superiorLeftPoint.$1 + sizes.$1, superiorLeftPoint.$2 - 1);
     } else {
       this.entryBoothPoint = entryBoothPoint;
     }
@@ -25,7 +25,7 @@ class BoothWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        callbackFunction((0,0), entryBoothPoint);
+        callbackFunction((0, 0), entryBoothPoint);
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
