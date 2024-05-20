@@ -50,7 +50,7 @@ class _MapWidgetState extends State<MapWidget> {
 
       for (var cell in pathBeingRendered) {
         renderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
-            Container(color: Colors.blue);
+            Container(color: Colors.cyan);
       }
     });
   }
