@@ -15,7 +15,7 @@ class BoothWidget extends StatelessWidget {
   }) {
     if (entryBoothPoint == null) {
       this.entryBoothPoint =
-          (superiorLeftPoint.$1 + sizes.$1, superiorLeftPoint.$2 - 1);
+          (superiorLeftPoint.$1, superiorLeftPoint.$2 + sizes.$2);
     } else {
       this.entryBoothPoint = entryBoothPoint;
     }
