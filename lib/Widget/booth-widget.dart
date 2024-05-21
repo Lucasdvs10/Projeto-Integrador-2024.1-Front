@@ -25,7 +25,7 @@ class BoothWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        callbackFunction((0, 0), entryBoothPoint);
+        callbackFunction((58, 7), entryBoothPoint);
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
