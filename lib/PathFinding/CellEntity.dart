@@ -38,11 +38,12 @@ class CellEntity {
 
   int GetGCost() => _gCost;
   int GetHCost() => _hCost;
+  int getFCost() => _fCost;
+  (int,int) getCoordinates() => (row, column);
 
   @override
   String toString() {
-    // TODO: implement toString
-    return "row: $row, column: $column, walkable: $walkable, gCost: $_gCost, hCost: $_hCost, fCost: $_fCost";
+    return "Cell(row: $row, column: $column, walkable: $walkable)";
   }
 
   @override
@@ -57,5 +58,4 @@ class CellEntity {
   void setPreviousCell(CellEntity previousCell) => _previousCell = previousCell;
   CellEntity? getPreviousCell() => _previousCell;
 
-  int getFCost() => _fCost;
 }
