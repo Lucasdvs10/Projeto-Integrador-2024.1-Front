@@ -1,31 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:telas_eureka/fourthpage.dart';
-import 'package:telas_eureka/main.dart';
-import 'package:telas_eureka/thirdpage.dart';
 
+import 'fourthpage.dart';
+import 'home.dart';
+import 'main.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SecondPage(),
-    );
-  }
+  _ThirdPageState createState() => _ThirdPageState();
 }
 
-class SecondPage extends StatefulWidget {
-  @override
-  _SecondPageState createState() => _SecondPageState();
-}
-
-class _SecondPageState extends State<SecondPage> {
+class _ThirdPageState extends State<ThirdPage> {
   final TextEditingController _searchController = TextEditingController();
   List<String> _data = [
-    ' Daniel Orivaldo da Silva (Blind Rooster)',
+    ' Projeto Teste',
     'Dados 2',
     'Dados 3',
     'Dados 4',
@@ -105,15 +92,15 @@ class _SecondPageState extends State<SecondPage> {
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do projeto'),
+              title: Text('Pesquisa por nome do aluno'),
               onTap: () {Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => ThirdPage()),
+                context,
+                MaterialPageRoute(builder: (context) => SecondPage()),
               );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do orientador'),
+              title: Text('Pesquisa por nome de Orientador'),
               onTap: () {Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => FourthPage()),
@@ -158,7 +145,7 @@ class _SecondPageState extends State<SecondPage> {
                   child: _filteredData.isEmpty
                       ? Center(
                     child: Text(
-                      'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
+                      'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
                       style: TextStyle(color: Colors.red),
                     ),
                   )

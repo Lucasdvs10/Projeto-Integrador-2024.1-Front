@@ -1,23 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:telas_eureka/main.dart';
-import 'package:telas_eureka/home.dart';
-import 'package:telas_eureka/thirdpage.dart';
 
-
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: FourthPage(),
-    );
-  }
-}
-
+import 'home.dart';
+import 'main.dart';
+import 'thirdpage.dart';
 class FourthPage extends StatefulWidget {
   @override
   _FourthPageState createState() => _FourthPageState();

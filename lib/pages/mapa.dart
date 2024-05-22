@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:telas_eureka/home.dart';
-import 'package:telas_eureka/main.dart';
-import 'package:telas_eureka/fourthpage.dart';
-import 'package:telas_eureka/thirdpage.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
+import 'package:projeto_integrador/Widget/map-widget.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MapPage(),
-    );
-  }
-}
+import 'home.dart';
+import 'main.dart';
+import 'thirdpage.dart';
 
 class MapPage extends StatefulWidget {
   @override
@@ -96,10 +85,9 @@ class _MapPageState extends State<MapPage> {
       body: Container(
         color: Colors.lightBlueAccent,
         child: Center(
-          child: Text(
-            'Conteúdo da nova página',
-            style: TextStyle(fontSize: 24, color: Colors.white),
-          ),
+          child: MapWidget(
+              boothsList: AllBoothsMap.GetAllBoothsList(),
+              matrixSize: (59, 30)),
         ),
       ),
     );

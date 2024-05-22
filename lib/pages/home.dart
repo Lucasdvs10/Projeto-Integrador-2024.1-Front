@@ -1,32 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:telas_eureka/main.dart';
-import 'package:telas_eureka/home.dart';
-import 'package:telas_eureka/fourthpage.dart';
 
+import 'fourthpage.dart';
+import 'main.dart';
+import 'thirdpage.dart';
 
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class SecondPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ThirdPage(),
-    );
-  }
+  _SecondPageState createState() => _SecondPageState();
 }
 
-class ThirdPage extends StatefulWidget {
-  @override
-  _ThirdPageState createState() => _ThirdPageState();
-}
-
-class _ThirdPageState extends State<ThirdPage> {
+class _SecondPageState extends State<SecondPage> {
   final TextEditingController _searchController = TextEditingController();
   List<String> _data = [
-    ' Projeto Teste',
+    ' Daniel Orivaldo da Silva (Blind Rooster)',
     'Dados 2',
     'Dados 3',
     'Dados 4',
@@ -49,7 +35,10 @@ class _ThirdPageState extends State<ThirdPage> {
   void _filterData(String query) {
     setState(() {
       if (query.isNotEmpty) {
-        _filteredData = _data.where((element) => element.toLowerCase().contains(query.toLowerCase())).toList();
+        _filteredData = _data
+            .where((element) =>
+                element.toLowerCase().contains(query.toLowerCase()))
+            .toList();
       } else {
         _filteredData = _data;
       }
@@ -106,19 +95,21 @@ class _ThirdPageState extends State<ThirdPage> {
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do aluno'),
-              onTap: () {Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => SecondPage()),
-              );
+              title: Text('Pesquisa por nome do projeto'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => ThirdPage()),
+                );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome de Orientador'),
-              onTap: () {Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => FourthPage()),
-              );
+              title: Text('Pesquisa por nome do orientador'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FourthPage()),
+                );
               },
             ),
           ],
@@ -158,29 +149,39 @@ class _ThirdPageState extends State<ThirdPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? Center(
-                    child: Text(
-                      'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  )
+                          child: Text(
+                            'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
+                            style: TextStyle(color: Colors.red),
+                          ),
+                        )
                       : ListView.builder(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                    itemCount: _filteredData.length,
-                    itemBuilder: (context, index) {
-                      final String item = _filteredData[index];
-                      final bool isFound = _searchController.text.isNotEmpty &&
-                          item.toLowerCase().contains(_searchController.text.toLowerCase());
-                      return Container(
-                        padding: const EdgeInsets.all(16.0),
-                        margin: const EdgeInsets.symmetric(vertical: 8.0),
-                        color: index.isOdd ? Colors.grey.shade200 : Colors.white,
-                        child: Text(
-                          item,
-                          style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          itemCount: _filteredData.length,
+                          itemBuilder: (context, index) {
+                            final String item = _filteredData[index];
+                            final bool isFound =
+                                _searchController.text.isNotEmpty &&
+                                    item.toLowerCase().contains(
+                                        _searchController.text.toLowerCase());
+                            return TextButton(
+                              onPressed: () => print("Cliquei"),
+                              style: ButtonStyle(
+                                padding: MaterialStateProperty.all<EdgeInsets>(
+                                    EdgeInsets.all(8)),
+                                // margin: const EdgeInsets.symmetric(vertical: 8.0),
+                                // color: index.isOdd ? Colors.grey.shade200 : Colors.white,
+                              ),
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color:
+                                        isFound ? Colors.green : Colors.black),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),

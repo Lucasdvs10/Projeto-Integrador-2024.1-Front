@@ -1,29 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:telas_eureka/home.dart';
-import 'package:telas_eureka/mapa.dart';
-import 'package:telas_eureka/thirdpage.dart';
-import 'package:telas_eureka/fourthpage.dart';
 
-void main() {
-  runApp(MyApp());
-}
+import 'fourthpage.dart';
+import 'home.dart';
+import 'mapa.dart';
+import 'thirdpage.dart';
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tela Eureka',
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Color(0xFF01288d),
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        scaffoldBackgroundColor: Colors.lightBlue[200],
-      ),
-      home: HomePage(),
-    );
-  }
-}
 
 class HomePage extends StatelessWidget {
   @override
