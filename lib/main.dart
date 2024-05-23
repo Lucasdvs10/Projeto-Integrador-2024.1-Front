@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black12),
           useMaterial3: true,
         ),
-        home: MapWidget(
-            boothsList: AllBoothsMap.GetAllBoothsList(), matrixSize: (59, 30)));
+        home: MapWidget.Eureka2023());
   }
 }
