@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
 import 'secondpage.dart';
 import 'main.dart';
@@ -7,14 +6,23 @@ import 'thirdpage.dart';
 
 class MapPage extends StatefulWidget {
   final Offset simulatedTapPosition;
+  (int, int)? startPoint;
+  (int, int)? endPoint;
 
-  const MapPage({super.key, this.simulatedTapPosition = Offset.zero});
+  MapPage(
+      {super.key,
+      this.simulatedTapPosition = Offset.zero,
+      this.startPoint,
+      this.endPoint});
 
   @override
-  MapPageState createState() => MapPageState();
+  MapPageState createState() => MapPageState(startPoint, endPoint);
 }
 
 class MapPageState extends State<MapPage> {
+  (int, int)? startPoint;
+  (int, int)? endPoint;
+
   @override
   void initState() {
     super.initState();
@@ -25,6 +33,8 @@ class MapPageState extends State<MapPage> {
       }
     });
   }
+
+  MapPageState(this.startPoint, this.endPoint);
 
   void _simulateTap(Offset position) {
     // Lógica para simular o toque na posição especificada
@@ -106,10 +116,7 @@ class MapPageState extends State<MapPage> {
       body: Container(
         color: Colors.lightBlueAccent,
         child: Center(
-          child: MapWidget(
-            boothsList: AllBoothsMap.GetAllBoothsList(),
-            matrixSize: (59, 30),
-          ),
+          child: MapWidget.Eureka2023(startPoint, endPoint),
         ),
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Widget/map-widget.dart';
 
 import 'fourthpage.dart';
 import 'secondpage.dart';
 import 'mapa.dart';
 import 'thirdpage.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,7 +20,8 @@ class HomePage extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.lightBlue[200],
       ),
-      home: const HomePageContent(), // Alterei para HomePageContent para resolver o problema do Scaffold
+      home:
+          const HomePageContent(), // Alterei para HomePageContent para resolver o problema do Scaffold
     );
   }
 }
@@ -30,7 +31,7 @@ class HomePageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
@@ -109,7 +110,8 @@ class HomePageContent extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SecondPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const SecondPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -135,7 +137,8 @@ class HomePageContent extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ThirdPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const ThirdPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -161,7 +164,8 @@ class HomePageContent extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const FourthPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const FourthPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -183,11 +187,12 @@ class HomePageContent extends StatelessWidget {
                     ],
                   ),
                 ),
-                ElevatedButton(  // Novo botão de MAPA
+                ElevatedButton(
+                  // Novo botão de MAPA
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const MapPage()),
+                      MaterialPageRoute(builder: (context) => MapPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

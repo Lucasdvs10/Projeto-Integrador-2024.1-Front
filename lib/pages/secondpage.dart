@@ -168,12 +168,6 @@ class SecondPageState extends State<SecondPage> {
                                         _searchController.text.toLowerCase());
                             return TextButton(
                               onPressed: () => print("Cliquei"),
-                              style: ButtonStyle(
-                                padding: WidgetStateProperty.all<EdgeInsets>(
-                                    const EdgeInsets.all(8)),
-                                // margin: const EdgeInsets.symmetric(vertical: 8.0),
-                                // color: index.isOdd ? Colors.grey.shade200 : Colors.white,
-                              ),
                               child: Text(
                                 item,
                                 style: TextStyle(

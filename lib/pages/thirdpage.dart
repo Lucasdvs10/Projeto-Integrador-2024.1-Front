@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Widget/map-widget.dart';
 import 'fourthpage.dart';
 import 'secondpage.dart';
 import 'main.dart';
@@ -38,7 +39,10 @@ class ThirdPageState extends State<ThirdPage> {
   void _filterData(String query) {
     setState(() {
       if (query.isNotEmpty) {
-        _filteredData = _data.where((element) => element.toLowerCase().contains(query.toLowerCase())).toList();
+        _filteredData = _data
+            .where((element) =>
+                element.toLowerCase().contains(query.toLowerCase()))
+            .toList();
       } else {
         _filteredData = _data;
       }
@@ -56,7 +60,10 @@ class ThirdPageState extends State<ThirdPage> {
     Future.delayed(const Duration(milliseconds: 200), () {
       // Navegar para a MapPage e simular um toque
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const MapPage(simulatedTapPosition: Offset(0, 10)),
+        builder: (context) => MapPage(
+          startPoint: (56, 6),
+          endPoint: (46, 3),
+        ),
       ));
 
       // Resetando o item selecionado após um atraso
@@ -171,34 +178,44 @@ class ThirdPageState extends State<ThirdPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? const Center(
-                    child: Text(
-                      'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  )
-                      : ListView.builder(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                    itemCount: _filteredData.length,
-                    itemBuilder: (context, index) {
-                      final String item = _filteredData[index];
-                      final bool isFound = _searchController.text.isNotEmpty &&
-                          item.toLowerCase().contains(_searchController.text.toLowerCase());
-                      return InkWell(
-                        onTap: () => _onItemTap(item),
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          margin: const EdgeInsets.symmetric(vertical: 8.0),
-                          color: item == _selectedItem
-                              ? Colors.lightBlueAccent
-                              : index.isOdd ? Colors.grey.shade200 : Colors.white,
                           child: Text(
-                            item,
-                            style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                            'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
+                            style: TextStyle(color: Colors.red),
                           ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          itemCount: _filteredData.length,
+                          itemBuilder: (context, index) {
+                            final String item = _filteredData[index];
+                            final bool isFound =
+                                _searchController.text.isNotEmpty &&
+                                    item.toLowerCase().contains(
+                                        _searchController.text.toLowerCase());
+                            return InkWell(
+                              onTap: () => _onItemTap(item),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                color: item == _selectedItem
+                                    ? Colors.lightBlueAccent
+                                    : index.isOdd
+                                        ? Colors.grey.shade200
+                                        : Colors.white,
+                                child: Text(
+                                  item,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: isFound
+                                          ? Colors.green
+                                          : Colors.black),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),
