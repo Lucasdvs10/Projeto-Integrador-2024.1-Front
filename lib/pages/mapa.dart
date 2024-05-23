@@ -1,19 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
-
 import 'secondpage.dart';
 import 'main.dart';
 import 'thirdpage.dart';
 
 class MapPage extends StatefulWidget {
-  const MapPage({super.key});
+  final Offset simulatedTapPosition;
+
+  const MapPage({super.key, this.simulatedTapPosition = Offset.zero});
 
   @override
   MapPageState createState() => MapPageState();
 }
 
 class MapPageState extends State<MapPage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.simulatedTapPosition != Offset.zero) {
+        // Simular o toque na posição especificada
+        _simulateTap(widget.simulatedTapPosition);
+      }
+    });
+  }
+
+  void _simulateTap(Offset position) {
+    // Lógica para simular o toque na posição especificada
+    print('Simulated tap at position: $position');
+    // Aqui você pode adicionar a lógica necessária para o MapWidget simular o toque.
+    // Por exemplo, chamando um método dentro do MapWidget que aceita uma posição e executa uma ação.
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,8 +107,9 @@ class MapPageState extends State<MapPage> {
         color: Colors.lightBlueAccent,
         child: Center(
           child: MapWidget(
-              boothsList: AllBoothsMap.GetAllBoothsList(),
-              matrixSize: (59, 30)),
+            boothsList: AllBoothsMap.GetAllBoothsList(),
+            matrixSize: (59, 30),
+          ),
         ),
       ),
     );

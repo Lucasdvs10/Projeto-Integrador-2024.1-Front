@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'fourthpage.dart';
 import 'secondpage.dart';
 import 'main.dart';
+import 'mapa.dart';
 
 class ThirdPage extends StatefulWidget {
-  const ThirdPage({super.key});
+  const ThirdPage({Key? key}) : super(key: key);
 
   @override
   ThirdPageState createState() => ThirdPageState();
@@ -14,7 +14,7 @@ class ThirdPage extends StatefulWidget {
 class ThirdPageState extends State<ThirdPage> {
   final TextEditingController _searchController = TextEditingController();
   final List<String> _data = [
-    ' Projeto Teste',
+    'Projeto Teste',
     'Dados 2',
     'Dados 3',
     'Dados 4',
@@ -23,10 +23,11 @@ class ThirdPageState extends State<ThirdPage> {
     'Dados 7',
     'Dados 8',
     'Dados 9',
-    ' Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
+    'Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
   ];
 
   List<String> _filteredData = [];
+  String? _selectedItem;
 
   @override
   void initState() {
@@ -41,6 +42,29 @@ class ThirdPageState extends State<ThirdPage> {
       } else {
         _filteredData = _data;
       }
+    });
+  }
+
+  void _onItemTap(String item) {
+    setState(() {
+      _selectedItem = item;
+    });
+
+    print('Item clicked: $item');
+
+    // Adicionando uma pequena pausa antes de navegar para a MapPage
+    Future.delayed(const Duration(milliseconds: 200), () {
+      // Navegar para a MapPage e simular um toque
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => const MapPage(simulatedTapPosition: Offset(0, 10)),
+      ));
+
+      // Resetando o item selecionado após um atraso
+      Future.delayed(const Duration(milliseconds: 300), () {
+        setState(() {
+          _selectedItem = null;
+        });
+      });
     });
   }
 
@@ -86,7 +110,6 @@ class ThirdPageState extends State<ThirdPage> {
             ListTile(
               title: const Text('Tela Inicial'),
               onTap: () {
-                // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
@@ -95,18 +118,20 @@ class ThirdPageState extends State<ThirdPage> {
             ),
             ListTile(
               title: const Text('Pesquisa por nome do aluno'),
-              onTap: () {Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const SecondPage()),
-              );
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
               },
             ),
             ListTile(
               title: const Text('Pesquisa por nome de Orientador'),
-              onTap: () {Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const FourthPage()),
-              );
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                );
               },
             ),
           ],
@@ -116,8 +141,8 @@ class ThirdPageState extends State<ThirdPage> {
         color: Colors.lightBlueAccent,
         child: Center(
           child: Container(
-            width: 600, // Largura do container
-            height: 500, // Altura do container
+            width: 600,
+            height: 500,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -158,13 +183,18 @@ class ThirdPageState extends State<ThirdPage> {
                       final String item = _filteredData[index];
                       final bool isFound = _searchController.text.isNotEmpty &&
                           item.toLowerCase().contains(_searchController.text.toLowerCase());
-                      return Container(
-                        padding: const EdgeInsets.all(16.0),
-                        margin: const EdgeInsets.symmetric(vertical: 8.0),
-                        color: index.isOdd ? Colors.grey.shade200 : Colors.white,
-                        child: Text(
-                          item,
-                          style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                      return InkWell(
+                        onTap: () => _onItemTap(item),
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
+                          color: item == _selectedItem
+                              ? Colors.lightBlueAccent
+                              : index.isOdd ? Colors.grey.shade200 : Colors.white,
+                          child: Text(
+                            item,
+                            style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                          ),
                         ),
                       );
                     },
