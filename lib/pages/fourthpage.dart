@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'secondpage.dart';
 import 'main.dart';
 import 'thirdpage.dart';
 class FourthPage extends StatefulWidget {
+  const FourthPage({super.key});
+
   @override
-  _FourthPageState createState() => _FourthPageState();
+  FourthPageState createState() => FourthPageState();
 }
 
-class _FourthPageState extends State<FourthPage> {
+class FourthPageState extends State<FourthPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<String> _data = [
+  final List<String> _data = [
     ' Orientador Teste',
     'Dados 2',
     'Dados 3',
@@ -52,15 +53,15 @@ class _FourthPageState extends State<FourthPage> {
               width: 150,
               height: 150,
             ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(right: 100.0),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -68,7 +69,7 @@ class _FourthPageState extends State<FourthPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF0A2E93),
               ),
@@ -81,28 +82,27 @@ class _FourthPageState extends State<FourthPage> {
               ),
             ),
             ListTile(
-              title: Text('Tela Inicial'),
+              title: const Text('Tela Inicial'),
               onTap: () {
-                // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const HomePage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do aluno'),
+              title: const Text('Pesquisa por nome do aluno'),
               onTap: () {Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => SecondPage()),
+                MaterialPageRoute(builder: (context) => const SecondPage()),
               );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome de projeto'),
+              title: const Text('Pesquisa por nome de projeto'),
               onTap: () {Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => ThirdPage()),
+                MaterialPageRoute(builder: (context) => const ThirdPage()),
               );
               },
             ),
@@ -118,7 +118,7 @@ class _FourthPageState extends State<FourthPage> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 10,
@@ -133,7 +133,7 @@ class _FourthPageState extends State<FourthPage> {
                   child: TextField(
                     controller: _searchController,
                     onChanged: _filterData,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Pesquisar...',
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.search),
@@ -142,7 +142,7 @@ class _FourthPageState extends State<FourthPage> {
                 ),
                 Expanded(
                   child: _filteredData.isEmpty
-                      ? Center(
+                      ? const Center(
                     child: Text(
                       'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
                       style: TextStyle(color: Colors.red),

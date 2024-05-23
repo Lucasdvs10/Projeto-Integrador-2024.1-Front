@@ -2,21 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
 
-import 'home.dart';
+import 'secondpage.dart';
 import 'main.dart';
 import 'thirdpage.dart';
 
 class MapPage extends StatefulWidget {
+  const MapPage({super.key});
+
   @override
-  _MapPageState createState() => _MapPageState();
+  MapPageState createState() => MapPageState();
 }
 
-class _MapPageState extends State<MapPage> {
+class MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF0A2E93),
+        backgroundColor: const Color(0xFF0A2E93),
         title: Row(
           children: [
             Image.asset(
@@ -24,15 +26,15 @@ class _MapPageState extends State<MapPage> {
               width: 150,
               height: 150,
             ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(right: 100.0),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -40,7 +42,7 @@ class _MapPageState extends State<MapPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF0A2E93),
               ),
@@ -53,29 +55,29 @@ class _MapPageState extends State<MapPage> {
               ),
             ),
             ListTile(
-              title: Text('Tela Inicial'),
+              title: const Text('Tela Inicial'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const HomePage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do aluno'),
+              title: const Text('Pesquisa por nome do aluno'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => SecondPage()),
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome de projeto'),
+              title: const Text('Pesquisa por nome de projeto'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ThirdPage()),
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
             ),

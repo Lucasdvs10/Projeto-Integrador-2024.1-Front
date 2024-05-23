@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'fourthpage.dart';
-import 'home.dart';
+import 'secondpage.dart';
 import 'main.dart';
 
 class ThirdPage extends StatefulWidget {
+  const ThirdPage({super.key});
+
   @override
-  _ThirdPageState createState() => _ThirdPageState();
+  ThirdPageState createState() => ThirdPageState();
 }
 
-class _ThirdPageState extends State<ThirdPage> {
+class ThirdPageState extends State<ThirdPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<String> _data = [
+  final List<String> _data = [
     ' Projeto Teste',
     'Dados 2',
     'Dados 3',
@@ -53,15 +55,15 @@ class _ThirdPageState extends State<ThirdPage> {
               width: 150,
               height: 150,
             ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(right: 100.0),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -69,7 +71,7 @@ class _ThirdPageState extends State<ThirdPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF0A2E93),
               ),
@@ -82,28 +84,28 @@ class _ThirdPageState extends State<ThirdPage> {
               ),
             ),
             ListTile(
-              title: Text('Tela Inicial'),
+              title: const Text('Tela Inicial'),
               onTap: () {
                 // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const HomePage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do aluno'),
+              title: const Text('Pesquisa por nome do aluno'),
               onTap: () {Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => SecondPage()),
+                MaterialPageRoute(builder: (context) => const SecondPage()),
               );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome de Orientador'),
+              title: const Text('Pesquisa por nome de Orientador'),
               onTap: () {Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => FourthPage()),
+                MaterialPageRoute(builder: (context) => const FourthPage()),
               );
               },
             ),
@@ -119,7 +121,7 @@ class _ThirdPageState extends State<ThirdPage> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 10,
@@ -134,7 +136,7 @@ class _ThirdPageState extends State<ThirdPage> {
                   child: TextField(
                     controller: _searchController,
                     onChanged: _filterData,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Pesquisar...',
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.search),
@@ -143,7 +145,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 ),
                 Expanded(
                   child: _filteredData.isEmpty
-                      ? Center(
+                      ? const Center(
                     child: Text(
                       'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
                       style: TextStyle(color: Colors.red),

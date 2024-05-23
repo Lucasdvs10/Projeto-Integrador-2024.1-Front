@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
 
 import 'fourthpage.dart';
-import 'home.dart';
+import 'secondpage.dart';
 import 'mapa.dart';
 import 'thirdpage.dart';
 
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      title: 'Tela Eureka',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF01288D),
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        scaffoldBackgroundColor: Colors.lightBlue[200],
+      ),
+      home: const HomePageContent(), // Alterei para HomePageContent para resolver o problema do Scaffold
+    );
+  }
+}
+
+class HomePageContent extends StatelessWidget {
+  const HomePageContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+      return Scaffold(
       appBar: AppBar(
         title: Row(
           children: [
@@ -18,15 +39,15 @@ class HomePage extends StatelessWidget {
               width: 150,
               height: 150,
             ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(right: 100.0),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -34,7 +55,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF0A2E93),
               ),
@@ -47,29 +68,29 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Busca por nome do aluno'),
+              title: const Text('Busca por nome do aluno'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => SecondPage()),
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Busca por nome de projeto'),
+              title: const Text('Busca por nome de projeto'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ThirdPage()),
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do orientador'),
+              title: const Text('Pesquisa por nome do orientador'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => FourthPage()),
+                  MaterialPageRoute(builder: (context) => const FourthPage()),
                 );
               },
             ),
@@ -88,7 +109,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SecondPage()),
+                      MaterialPageRoute(builder: (context) => const SecondPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -96,9 +117,9 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    minimumSize: Size(200, 200),
+                    minimumSize: const Size(200, 200),
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.person, color: Colors.black, size: 40),
@@ -114,7 +135,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ThirdPage()),
+                      MaterialPageRoute(builder: (context) => const ThirdPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -122,9 +143,9 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    minimumSize: Size(200, 200),
+                    minimumSize: const Size(200, 200),
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.assignment, color: Colors.black, size: 40),
@@ -140,7 +161,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => FourthPage()),
+                      MaterialPageRoute(builder: (context) => const FourthPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -148,9 +169,9 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    minimumSize: Size(200, 200),
+                    minimumSize: const Size(200, 200),
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.person_outline, color: Colors.black, size: 40),
@@ -166,7 +187,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
+                      MaterialPageRoute(builder: (context) => const MapPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -174,9 +195,9 @@ class HomePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    minimumSize: Size(200, 200),
+                    minimumSize: const Size(200, 200),
                   ),
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.map, color: Colors.black, size: 40),

@@ -5,13 +5,15 @@ import 'main.dart';
 import 'thirdpage.dart';
 
 class SecondPage extends StatefulWidget {
+  const SecondPage({super.key});
+
   @override
-  _SecondPageState createState() => _SecondPageState();
+  SecondPageState createState() => SecondPageState();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class SecondPageState extends State<SecondPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<String> _data = [
+  final List<String> _data = [
     ' Daniel Orivaldo da Silva (Blind Rooster)',
     'Dados 2',
     'Dados 3',
@@ -56,15 +58,15 @@ class _SecondPageState extends State<SecondPage> {
               width: 150,
               height: 150,
             ),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.only(right: 100.0),
+            const Spacer(),
+            const Padding(
+              padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -72,7 +74,7 @@ class _SecondPageState extends State<SecondPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Color(0xFF0A2E93),
               ),
@@ -85,30 +87,30 @@ class _SecondPageState extends State<SecondPage> {
               ),
             ),
             ListTile(
-              title: Text('Tela Inicial'),
+              title: const Text('Tela Inicial'),
               onTap: () {
                 // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const HomePage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do projeto'),
+              title: const Text('Pesquisa por nome do projeto'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ThirdPage()),
+                  MaterialPageRoute(builder: (context) => const ThirdPage()),
                 );
               },
             ),
             ListTile(
-              title: Text('Pesquisa por nome do orientador'),
+              title: const Text('Pesquisa por nome do orientador'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => FourthPage()),
+                  MaterialPageRoute(builder: (context) => const FourthPage()),
                 );
               },
             ),
@@ -124,7 +126,7 @@ class _SecondPageState extends State<SecondPage> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 10,
@@ -139,7 +141,7 @@ class _SecondPageState extends State<SecondPage> {
                   child: TextField(
                     controller: _searchController,
                     onChanged: _filterData,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Pesquisar...',
                       border: OutlineInputBorder(),
                       suffixIcon: Icon(Icons.search),
@@ -148,7 +150,7 @@ class _SecondPageState extends State<SecondPage> {
                 ),
                 Expanded(
                   child: _filteredData.isEmpty
-                      ? Center(
+                      ? const Center(
                           child: Text(
                             'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
                             style: TextStyle(color: Colors.red),
@@ -167,8 +169,8 @@ class _SecondPageState extends State<SecondPage> {
                             return TextButton(
                               onPressed: () => print("Cliquei"),
                               style: ButtonStyle(
-                                padding: MaterialStateProperty.all<EdgeInsets>(
-                                    EdgeInsets.all(8)),
+                                padding: WidgetStateProperty.all<EdgeInsets>(
+                                    const EdgeInsets.all(8)),
                                 // margin: const EdgeInsets.symmetric(vertical: 8.0),
                                 // color: index.isOdd ? Colors.grey.shade200 : Colors.white,
                               ),
