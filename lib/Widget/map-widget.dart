@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/PathFinding/AStarCalculator.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/PathFinding/CellEntity.dart';
 import 'package:projeto_integrador/PathFinding/GridMap.dart';
 import 'package:projeto_integrador/Widget/booth-widget.dart';
@@ -11,6 +12,10 @@ class MapWidget extends StatefulWidget {
 
   MapWidget({super.key, required this.matrixSize, required this.boothsList}) {
     gridMapEntity = GridMap.AllWalkable(matrixSize.$1, matrixSize.$2);
+  }
+  factory MapWidget.Eureka2023() {
+    return MapWidget(
+        matrixSize: (59, 30), boothsList: AllBoothsMap.GetAllBoothsList());
   }
   @override
   State<MapWidget> createState() =>
