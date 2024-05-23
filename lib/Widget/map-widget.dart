@@ -9,6 +9,12 @@ class MapWidget extends StatefulWidget {
   late final (int, int) matrixSize;
   late final List<BoothWidget> boothsList;
   late final GridMap gridMapEntity;
+  Function((int, int), (int, int))? _calculatePathFunction;
+
+  void CalculatePathAndRender((int, int) startPoint, (int, int) endPoint) {
+    if (_calculatePathFunction == null) return;
+    _calculatePathFunction!(startPoint, endPoint);
+  }
 
   MapWidget({super.key, required this.matrixSize, required this.boothsList}) {
     gridMapEntity = GridMap.AllWalkable(matrixSize.$1, matrixSize.$2);
@@ -30,6 +36,7 @@ class _MapWidgetState extends State<MapWidget> {
 
   @override
   Widget build(BuildContext context) {
+    this.widget._calculatePathFunction = CalculateAndRenderPath;
     return GridView.count(crossAxisCount: 30, children: renderizedGrid);
   }
 
@@ -50,14 +57,14 @@ class _MapWidgetState extends State<MapWidget> {
   }
 
   void RenderPath() {
-    setState(() {
-      renderizedGrid = List.from(pathlessGrid);
+    renderizedGrid = List.from(pathlessGrid);
 
-      for (var cell in pathBeingRendered) {
-        renderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
-            Container(color: Colors.cyan);
-      }
-    });
+    for (var cell in pathBeingRendered) {
+      renderizedGrid[cell.row * widget.matrixSize.$2 + cell.column] =
+          Container(color: Colors.cyan);
+    }
+
+    setState(() {});
   }
 
   _MapWidgetState((int, int) matrixSize, List<BoothWidget> boothsList,
