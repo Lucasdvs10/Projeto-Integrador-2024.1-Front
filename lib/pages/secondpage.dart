@@ -151,6 +151,15 @@ class SecondPageState extends State<SecondPage> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Mapa'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MapPage()),
+                );
+              },
+            ),
           ],
         ),
       ),

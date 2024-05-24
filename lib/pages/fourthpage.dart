@@ -148,6 +148,15 @@ class FourthPageState extends State<FourthPage> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Mapa'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MapPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
