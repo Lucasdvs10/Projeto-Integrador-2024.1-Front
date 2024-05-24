@@ -38,33 +38,48 @@ class ThirdPageState extends State<ThirdPage> {
   void _filterData(String query) {
     setState(() {
       if (query.isNotEmpty) {
-        _filteredData = _data.where((element) => element.toLowerCase().contains(query.toLowerCase())).toList();
+        _filteredData = _data
+            .where((element) =>
+            element.toLowerCase().contains(query.toLowerCase()))
+            .toList();
       } else {
         _filteredData = _data;
       }
     });
   }
 
-  void _onItemTap(String item) {
+  void _onItemTap(String item) async {
     setState(() {
       _selectedItem = item;
     });
 
     print('Item clicked: $item');
 
-    // Adicionando uma pequena pausa antes de navegar para a MapPage
-    Future.delayed(const Duration(milliseconds: 200), () {
-      // Navegar para a MapPage e simular um toque
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const MapPage(simulatedTapPosition: Offset(0, 10)),
-      ));
+    // Exibindo o diálogo de carregamento
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
 
-      // Resetando o item selecionado após um atraso
-      Future.delayed(const Duration(milliseconds: 300), () {
-        setState(() {
-          _selectedItem = null;
-        });
-      });
+    // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
+    await Future.delayed(const Duration(milliseconds: 3000));
+
+    // Fechar o diálogo de carregamento
+    Navigator.of(context, rootNavigator: true).pop();
+
+    // Navegar para a MapPage após fechar o diálogo de carregamento
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const MapPage(simulatedTapPosition: Offset(0, 10)),
+    ));
+
+    // Resetando o item selecionado
+    setState(() {
+      _selectedItem = null;
     });
   }
 
@@ -93,48 +108,47 @@ class ThirdPageState extends State<ThirdPage> {
       ),
       endDrawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF0A2E93),
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+        const DrawerHeader(
+        decoration: BoxDecoration(
+            color: Color(0xFF0A2E93),
+      ),
+      child: Text(
+        'Menu',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+        ),
+      ),
+    ),
+    ListTile(
+    title: const Text('Tela Inicial'),
+    onTap: () {
+    Navigator.pushReplacement( context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    },
+    ),
+              ListTile(
+                title: const Text('Pesquisa por nome do aluno'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                  );
+                },
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+              ListTile(
+                title: const Text('Pesquisa por nome de Orientador'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FourthPage()),
+                  );
+                },
               ),
-            ),
-            ListTile(
-              title: const Text('Tela Inicial'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome do aluno'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome de Orientador'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
-                );
-              },
-            ),
-          ],
+            ],
         ),
       ),
       body: Container(
@@ -177,23 +191,33 @@ class ThirdPageState extends State<ThirdPage> {
                     ),
                   )
                       : ListView.builder(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 16.0),
                     itemCount: _filteredData.length,
                     itemBuilder: (context, index) {
                       final String item = _filteredData[index];
-                      final bool isFound = _searchController.text.isNotEmpty &&
-                          item.toLowerCase().contains(_searchController.text.toLowerCase());
+                      final bool isFound = _searchController.text
+                          .isNotEmpty &&
+                          item.toLowerCase().contains(
+                              _searchController.text.toLowerCase());
                       return InkWell(
                         onTap: () => _onItemTap(item),
                         child: Container(
                           padding: const EdgeInsets.all(16.0),
-                          margin: const EdgeInsets.symmetric(vertical: 8.0),
+                          margin:
+                          const EdgeInsets.symmetric(vertical: 8.0),
                           color: item == _selectedItem
                               ? Colors.lightBlueAccent
-                              : index.isOdd ? Colors.grey.shade200 : Colors.white,
+                              : index.isOdd
+                              ? Colors.grey.shade200
+                              : Colors.white,
                           child: Text(
                             item,
-                            style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: isFound
+                                    ? Colors.green
+                                    : Colors.black),
                           ),
                         ),
                       );

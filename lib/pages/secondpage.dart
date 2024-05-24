@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/pages/mapa.dart';
 
 import 'fourthpage.dart';
 import 'main.dart';
@@ -27,6 +28,7 @@ class SecondPageState extends State<SecondPage> {
   ];
 
   List<String> _filteredData = [];
+  String? _selectedItem;
 
   @override
   void initState() {
@@ -39,11 +41,46 @@ class SecondPageState extends State<SecondPage> {
       if (query.isNotEmpty) {
         _filteredData = _data
             .where((element) =>
-                element.toLowerCase().contains(query.toLowerCase()))
+            element.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
       }
+    });
+  }
+
+  void _onItemTap(String item) async {
+    setState(() {
+      _selectedItem = item;
+    });
+
+    print('Item clicked: $item');
+
+    // Exibindo o diálogo de carregamento
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
+    // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
+    await Future.delayed(const Duration(milliseconds: 3000));
+
+    // Fechar o diálogo de carregamento
+    Navigator.of(context, rootNavigator: true).pop();
+
+    // Navegar para a MapPage após fechar o diálogo de carregamento
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const MapPage(),
+    ));
+
+    // Resetando o item selecionado
+    setState(() {
+      _selectedItem = null;
     });
   }
 
@@ -151,39 +188,44 @@ class SecondPageState extends State<SecondPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? const Center(
-                          child: Text(
-                            'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        )
+                    child: Text(
+                      'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  )
                       : ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8.0, horizontal: 16.0),
-                          itemCount: _filteredData.length,
-                          itemBuilder: (context, index) {
-                            final String item = _filteredData[index];
-                            final bool isFound =
-                                _searchController.text.isNotEmpty &&
-                                    item.toLowerCase().contains(
-                                        _searchController.text.toLowerCase());
-                            return TextButton(
-                              onPressed: () => print("Cliquei"),
-                              style: ButtonStyle(
-                                padding: WidgetStateProperty.all<EdgeInsets>(
-                                    const EdgeInsets.all(8)),
-                                // margin: const EdgeInsets.symmetric(vertical: 8.0),
-                                // color: index.isOdd ? Colors.grey.shade200 : Colors.white,
-                              ),
-                              child: Text(
-                                item,
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color:
-                                        isFound ? Colors.green : Colors.black),
-                              ),
-                            );
-                          },
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 16.0),
+                    itemCount: _filteredData.length,
+                    itemBuilder: (context, index) {
+                      final String item = _filteredData[index];
+                      final bool isFound = _searchController.text
+                          .isNotEmpty &&
+                          item.toLowerCase().contains(
+                              _searchController.text.toLowerCase());
+                      return InkWell(
+                        onTap: () => _onItemTap(item),
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          margin:
+                          const EdgeInsets.symmetric(vertical: 8.0),
+                          color: item == _selectedItem
+                              ? Colors.lightBlueAccent
+                              : index.isOdd
+                              ? Colors.grey.shade200
+                              : Colors.white,
+                          child: Text(
+                            item,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: isFound
+                                    ? Colors.green
+                                    : Colors.black),
+                          ),
                         ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
