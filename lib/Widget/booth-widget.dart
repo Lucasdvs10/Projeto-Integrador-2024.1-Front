@@ -6,12 +6,14 @@ class BoothWidget extends StatelessWidget {
   late final (int, int) sizes;
   late Color color;
   late Function((int, int), (int, int)) callbackFunction;
+  int? boothNumber;
   BoothWidget({
     super.key,
     required this.superiorLeftPoint,
     required this.sizes,
     required this.color,
     (int, int)? entryBoothPoint,
+    this.boothNumber
   }) {
     if (entryBoothPoint == null) {
       this.entryBoothPoint =

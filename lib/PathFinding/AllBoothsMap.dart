@@ -9,96 +9,112 @@ class AllBoothsMap {
         superiorLeftPoint: (3, 0),
         sizes: (4, 2),
         color: Colors.green,
+        boothNumber: 161,
       ),
       BoothWidget(
         //Estande 2
         superiorLeftPoint: (7, 0),
         sizes: (4, 2),
         color: Colors.red,
+        boothNumber: 159,
       ),
       BoothWidget(
         //Estande 3
         superiorLeftPoint: (11, 0),
         sizes: (4, 2),
         color: Colors.green,
+        boothNumber: 157,
       ),
       BoothWidget(
         //Estande 4
         superiorLeftPoint: (15, 0),
         sizes: (4, 2),
         color: Colors.orange,
+        boothNumber: 155,
       ),
       BoothWidget(
         //Estande 5
         superiorLeftPoint: (19, 0),
         sizes: (4, 2),
         color: Colors.green,
+        boothNumber: 153,
       ),
       BoothWidget(
         //Estande 6
         superiorLeftPoint: (23, 0),
         sizes: (4, 2),
         color: Colors.pink,
+        boothNumber: 151,
       ),
       BoothWidget(
         //Estande 7
         superiorLeftPoint: (27, 0),
         sizes: (7, 2),
         color: Colors.green,
+        boothNumber: 149,
       ),
       BoothWidget(
         //Estande 8
         superiorLeftPoint: (34, 0),
         sizes: (2, 2),
         color: Colors.blue,
+        boothNumber: 147,
       ),
       BoothWidget(
         //Estande 9
         superiorLeftPoint: (36, 0),
         sizes: (2, 2),
         color: Colors.green,
+        boothNumber: 145,
       ),
       BoothWidget(
         //Estande 10
         superiorLeftPoint: (38, 0),
         sizes: (3, 2),
         color: Colors.purple,
+        boothNumber: 143,
       ),
       BoothWidget(
         //Estande 11
         superiorLeftPoint: (41, 0),
         sizes: (2, 2),
         color: Colors.orange,
+        boothNumber: 141,
       ),
       BoothWidget(
         //Estande 12
         superiorLeftPoint: (43, 0),
         sizes: (2, 2),
         color: Colors.purple,
+        boothNumber: 139,
       ),
       BoothWidget(
         //Estande 13
         superiorLeftPoint: (45, 0),
         sizes: (3, 2),
         color: Colors.green,
+        boothNumber: 137,
       ),
       BoothWidget(
         //Estande 14
         superiorLeftPoint: (48, 0),
         sizes: (2, 2),
         color: Colors.blue,
+        boothNumber: 135,
       ),
       BoothWidget(
         //Estande 15
         superiorLeftPoint: (50, 0),
         sizes: (2, 2),
         color: Colors.orange,
+        boothNumber: 133,
       ),
       BoothWidget(
         //Estande 16
         superiorLeftPoint: (52, 0),
         sizes: (2, 2),
         color: Colors.purple,
+        boothNumber: 131,
       ),
       BoothWidget(
         //Estande 17
