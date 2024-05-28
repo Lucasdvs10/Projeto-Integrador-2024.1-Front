@@ -1,4 +1,4 @@
-import 'package:projeto_integrador/Repositories/Entities/StudentEntity.dart';
+import 'package:projeto_integrador/Entities/StudentEntity.dart';
 
 abstract class IStudentRepo {
   Future<StudentEntity?> GetStudentById(int id);

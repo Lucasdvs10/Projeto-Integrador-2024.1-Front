@@ -1,5 +1,5 @@
-import 'package:projeto_integrador/Repositories/Entities/AdvisorEntity.dart';
-import 'package:projeto_integrador/Repositories/Entities/StudentEntity.dart';
+import 'package:projeto_integrador/Entities/AdvisorEntity.dart';
+import 'package:projeto_integrador/Entities/StudentEntity.dart';
 import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
 
 class AdvisorRepoMock implements IAdvisorRepo {

@@ -1,4 +1,4 @@
-import 'package:projeto_integrador/Repositories/Entities/ProjectEntity.dart';
+import 'package:projeto_integrador/Entities/ProjectEntity.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 
 class ProjectRepoMock implements IProjectRepo {

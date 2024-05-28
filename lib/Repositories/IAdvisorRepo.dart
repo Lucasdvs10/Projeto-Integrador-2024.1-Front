@@ -1,4 +1,4 @@
-import 'package:projeto_integrador/Repositories/Entities/AdvisorEntity.dart';
+import 'package:projeto_integrador/Entities/AdvisorEntity.dart';
 
 abstract class IAdvisorRepo {
   Future<List<AdvisorEntity>> GetAllAdvisors();
