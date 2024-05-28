@@ -315,6 +315,7 @@ class AllBoothsMap {
         superiorLeftPoint: (3, 10),
         sizes: (3, 4),
         color: Colors.red,
+        boothNumber: 91,
       ),
       BoothWidget(
         //Estande 44
@@ -322,12 +323,14 @@ class AllBoothsMap {
         sizes: (2, 2),
         entryBoothPoint: (6, 9),
         color: Colors.orange,
+        boothNumber: 116,
       ),
       BoothWidget(
         //Estande 45
         superiorLeftPoint: (6, 12),
         sizes: (2, 2),
         color: Colors.brown,
+        boothNumber: 89,
       ),
       BoothWidget(
         //Estande 46
@@ -335,12 +338,14 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (8, 9),
         color: Colors.blue,
+        boothNumber: 114,
       ),
       BoothWidget(
         //Estande 47
         superiorLeftPoint: (8, 12),
         sizes: (3, 2),
         color: Colors.green,
+        boothNumber: 87,
       ),
       BoothWidget(
         //Estande 48
@@ -348,18 +353,21 @@ class AllBoothsMap {
         sizes: (2, 2),
         entryBoothPoint: (11, 9),
         color: Colors.red,
+        boothNumber: 112,
       ),
       BoothWidget(
         //Estande 49
         superiorLeftPoint: (11, 12),
         sizes: (2, 2),
         color: Colors.orange,
+        boothNumber: 85,
       ),
       BoothWidget(
         //Estande 50
         superiorLeftPoint: (13, 10),
         sizes: (3, 4),
         color: Colors.green,
+        boothNumber: 83,
       ),
       BoothWidget(
         //Estande 51
@@ -367,12 +375,14 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (20, 9),
         color: Colors.orange,
+        boothNumber: 110,
       ),
       BoothWidget(
         //Estande 52
         superiorLeftPoint: (20, 12),
         sizes: (3, 2),
         color: Colors.brown,
+        boothNumber: 81,
       ),
       BoothWidget(
         //Estande 53
@@ -380,12 +390,14 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (23, 9),
         color: Colors.green,
+        boothNumber: 108,
       ),
       BoothWidget(
         //Estande 54
         superiorLeftPoint: (23, 12),
         sizes: (3, 2),
         color: Colors.red,
+        boothNumber: 79,
       ),
       BoothWidget(
         //Estande 55
@@ -393,12 +405,14 @@ class AllBoothsMap {
         sizes: (2, 2),
         entryBoothPoint: (26, 9),
         color: Colors.purple,
+        boothNumber: 106,
       ),
       BoothWidget(
         //Estande 56
         superiorLeftPoint: (26, 12),
         sizes: (2, 2),
         color: Colors.black,
+        boothNumber: 77,
       ),
       BoothWidget(
         //Estande 57
@@ -406,12 +420,14 @@ class AllBoothsMap {
         sizes: (2, 2),
         entryBoothPoint: (28, 9),
         color: Colors.blue,
+        boothNumber: 104,
       ),
       BoothWidget(
         //Estande 58
         superiorLeftPoint: (28, 12),
         sizes: (2, 2),
         color: Colors.orange,
+        boothNumber: 75,
       ),
       BoothWidget(
         //Estande 59
@@ -419,12 +435,14 @@ class AllBoothsMap {
         sizes: (2, 2),
         entryBoothPoint: (30, 9),
         color: Colors.pink,
+        boothNumber: 102,
       ),
       BoothWidget(
         //Estande 60
         superiorLeftPoint: (30, 12),
         sizes: (2, 2),
         color: Colors.green,
+        boothNumber: 73,
       ),
       BoothWidget(
         //Estande 61
@@ -432,12 +450,14 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (32, 9),
         color: Colors.brown,
+        boothNumber: 100,
       ),
       BoothWidget(
         //Estande 62
         superiorLeftPoint: (32, 12),
         sizes: (3, 2),
         color: Colors.blue,
+        boothNumber: 71,
       ),
       //Debs
       BoothWidget(
