@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Entities/ProjectEntity.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
+import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
+import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
 import 'fourthpage.dart';
 import 'secondpage.dart';
@@ -14,25 +18,34 @@ class ThirdPage extends StatefulWidget {
 
 class ThirdPageState extends State<ThirdPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<String> _data = [
-    'Projeto Teste',
-    'Dados 2',
-    'Dados 3',
-    'Dados 4',
-    'Dados 5',
-    'Dados 6',
-    'Dados 7',
-    'Dados 8',
-    'Dados 9',
-    'Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
-  ];
+  final IProjectRepo _projectRepo = RepositoryInjector.GetProjectRepo();
 
-  List<String> _filteredData = [];
-  String? _selectedItem;
+  // final List<String> _data = [
+  //   'Projeto Teste',
+  //   'Dados 2',
+  //   'Dados 3',
+  //   'Dados 4',
+  //   'Dados 5',
+  //   'Dados 6',
+  //   'Dados 7',
+  //   'Dados 8',
+  //   'Dados 9',
+  //   'Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
+  // ];
+
+  late final List<ProjectEntity> _data;
+  late List<ProjectEntity> _filteredData = [];
+  ProjectEntity? _selectedItem;
 
   @override
   void initState() {
+    Initialize();
     super.initState();
+    // _filteredData = _data;
+  }
+
+  void Initialize() async {
+    _data = await _projectRepo.GetAllProjects();
     _filteredData = _data;
   }
 
@@ -41,7 +54,7 @@ class ThirdPageState extends State<ThirdPage> {
       if (query.isNotEmpty) {
         _filteredData = _data
             .where((element) =>
-                element.toLowerCase().contains(query.toLowerCase()))
+                element.projectName.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
@@ -49,12 +62,12 @@ class ThirdPageState extends State<ThirdPage> {
     });
   }
 
-  void _onItemTap(String item) {
+  void _onItemTap(ProjectEntity project) {
     setState(() {
-      _selectedItem = item;
+      _selectedItem = project;
     });
 
-    print('Item clicked: $item');
+    print('Item clicked: $project');
 
     // Adicionando uma pequena pausa antes de navegar para a MapPage
     Future.delayed(const Duration(milliseconds: 200), () {
@@ -62,7 +75,8 @@ class ThirdPageState extends State<ThirdPage> {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => MapPage(
           startPoint: (56, 6),
-          endPoint: (46, 3),
+          endPoint: AllBoothsMap.GetBoothByBoothNumber(project.boothNumber)!
+              .entryBoothPoint,
         ),
       ));
 
@@ -188,10 +202,10 @@ class ThirdPageState extends State<ThirdPage> {
                               vertical: 8.0, horizontal: 16.0),
                           itemCount: _filteredData.length,
                           itemBuilder: (context, index) {
-                            final String item = _filteredData[index];
+                            final ProjectEntity item = _filteredData[index];
                             final bool isFound =
                                 _searchController.text.isNotEmpty &&
-                                    item.toLowerCase().contains(
+                                    item.projectName.toLowerCase().contains(
                                         _searchController.text.toLowerCase());
                             return InkWell(
                               onTap: () => _onItemTap(item),
@@ -205,7 +219,7 @@ class ThirdPageState extends State<ThirdPage> {
                                         ? Colors.grey.shade200
                                         : Colors.white,
                                 child: Text(
-                                  item,
+                                  item.projectName,
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: isFound
