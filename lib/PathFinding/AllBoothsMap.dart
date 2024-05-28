@@ -915,6 +915,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (3, 26),
         color: Colors.blue,
+        boothNumber: 28,
       ),
 
       BoothWidget(
@@ -923,6 +924,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (6, 26),
         color: Colors.red,
+        boothNumber: 26,
       ),
 
       BoothWidget(
@@ -931,6 +933,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (9, 26),
         color: Colors.pink,
+        boothNumber: 24,
       ),
 
       BoothWidget(
@@ -939,6 +942,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (12, 26),
         color: Colors.green,
+        boothNumber: 22,
       ),
 
       BoothWidget(
@@ -947,6 +951,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (15, 26),
         color: Colors.blue,
+        boothNumber: 20,
       ), // oitavo bloco
 
       BoothWidget(
@@ -955,6 +960,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (21, 26),
         color: Colors.blue,
+        boothNumber: 18,
       ),
 
       BoothWidget(
@@ -963,6 +969,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (24, 26),
         color: Colors.red,
+        boothNumber: 16,
       ),
 
       BoothWidget(
@@ -971,6 +978,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (27, 26),
         color: Colors.pink,
+        boothNumber: 14,
       ),
 
       BoothWidget(
@@ -979,6 +987,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (30, 26),
         color: Colors.green,
+        boothNumber: 12,
       ),
 
       BoothWidget(
@@ -987,6 +996,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (33, 26),
         color: Colors.blue,
+        boothNumber: 10,
       ), // nono bloco
 
       BoothWidget(
@@ -995,6 +1005,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (39, 26),
         color: Colors.blue,
+        boothNumber: 8,
       ),
 
       BoothWidget(
@@ -1003,14 +1014,16 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (42, 26),
         color: Colors.red,
+        boothNumber: 6,
       ),
-      
+
       BoothWidget(
         // Estande 125
         superiorLeftPoint: (44, 27),
         sizes: (3, 2),
         entryBoothPoint: (45, 26),
         color: Colors.pink,
+        boothNumber: 4,
       ),
 
       BoothWidget(
@@ -1019,6 +1032,7 @@ class AllBoothsMap {
         sizes: (3, 2),
         entryBoothPoint: (48, 26),
         color: Colors.green,
+        boothNumber: 2,
       ),
     ];
   }
