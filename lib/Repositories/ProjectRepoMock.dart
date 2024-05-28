@@ -27,12 +27,12 @@ class ProjectRepoMock implements IProjectRepo {
   }
 
   @override
-  Future<ProjectEntity>? GetProjectById(int id) {
+  Future<ProjectEntity?> GetProjectById(int id) {
     for (var project in projectsList) {
       if (project.id == id) {
         return Future.value(project);
       }
     }
-    return null;
+    return Future.value(null);
   }
 }
