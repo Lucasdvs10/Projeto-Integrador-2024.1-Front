@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
+import 'package:projeto_integrador/pages/fourthpage.dart';
 import 'secondpage.dart';
 import 'main.dart';
 import 'thirdpage.dart';
@@ -110,6 +111,14 @@ class MapPageState extends State<MapPage> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Pesquisa por nome de Orientador'),
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FourthPage()),
+                );
+              },
+            ),
+
           ],
         ),
       ),

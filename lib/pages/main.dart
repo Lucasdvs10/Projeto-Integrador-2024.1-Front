@@ -95,6 +95,15 @@ class HomePageContent extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Mapa'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MapPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
