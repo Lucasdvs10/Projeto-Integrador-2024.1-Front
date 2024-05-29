@@ -41,23 +41,27 @@ class MapPageState extends State<MapPage> {
         backgroundColor: const Color(0xFF0A2E93),
         title: Row(
           children: [
-            TextButton(
-                onPressed: () async {
-                  ((int, int), (int, int))? coordinatesTuple =
-                      await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchOptionsPage()),
-                  );
+            IconButton(
+              onPressed: () async {
+                ((int, int), (int, int))? coordinatesTuple =
+                    await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
+                );
 
-                  setState(() {
-                    if (coordinatesTuple == null) return;
-                    startPoint = coordinatesTuple.$1;
-                    endPoint = coordinatesTuple.$2;
-                    mapWidget.CalculatePathAndRender(startPoint!, endPoint!);
-                  });
-                },
-                child: Text("Pesquisar")),
+                setState(() {
+                  if (coordinatesTuple == null) return;
+                  startPoint = coordinatesTuple.$1;
+                  endPoint = coordinatesTuple.$2;
+                  mapWidget.CalculatePathAndRender(startPoint!, endPoint!);
+                });
+              },
+              icon: const Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+            ),
             const Spacer(),
             const Padding(
               padding: EdgeInsets.only(right: 100.0),
