@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Entities/ProjectEntity.dart';
+import 'package:projeto_integrador/Entities/StudentEntity.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
+import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
+import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
+import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
 import 'package:projeto_integrador/pages/mapa.dart';
 
 import 'fourthpage.dart';
@@ -14,25 +20,20 @@ class SecondPage extends StatefulWidget {
 
 class SecondPageState extends State<SecondPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<String> _data = [
-    ' Daniel Orivaldo da Silva (Blind Rooster)',
-    'Dados 2',
-    'Dados 3',
-    'Dados 4',
-    'Dados 5',
-    'Dados 6',
-    'Dados 7',
-    'Dados 8',
-    'Dados 9',
-    ' Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
-  ];
-
-  List<String> _filteredData = [];
-  String? _selectedItem;
+  late final List<StudentEntity> _data;
+  late final IStudentRepo _studentRepo;
+  List<StudentEntity> _filteredData = [];
+  StudentEntity? _selectedItem;
 
   @override
   void initState() {
     super.initState();
+    Initialize();
+  }
+
+  void Initialize() async {
+    _studentRepo = RepositoryInjector.GetStudentRepo();
+    _data = await _studentRepo.GetAllStudents();
     _filteredData = _data;
   }
 
@@ -41,7 +42,7 @@ class SecondPageState extends State<SecondPage> {
       if (query.isNotEmpty) {
         _filteredData = _data
             .where((element) =>
-            element.toLowerCase().contains(query.toLowerCase()))
+                element.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
@@ -49,7 +50,7 @@ class SecondPageState extends State<SecondPage> {
     });
   }
 
-  void _onItemTap(String item) async {
+  void _onItemTap(StudentEntity item) async {
     setState(() {
       _selectedItem = item;
     });
@@ -75,7 +76,11 @@ class SecondPageState extends State<SecondPage> {
 
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) =>  MapPage(),
+      builder: (context) => MapPage(
+        startPoint: (56, 8),
+        endPoint: AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!
+            .entryBoothPoint,
+      ),
     ));
 
     // Resetando o item selecionado
@@ -197,44 +202,44 @@ class SecondPageState extends State<SecondPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? const Center(
-                    child: Text(
-                      'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  )
-                      : ListView.builder(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 16.0),
-                    itemCount: _filteredData.length,
-                    itemBuilder: (context, index) {
-                      final String item = _filteredData[index];
-                      final bool isFound = _searchController.text
-                          .isNotEmpty &&
-                          item.toLowerCase().contains(
-                              _searchController.text.toLowerCase());
-                      return InkWell(
-                        onTap: () => _onItemTap(item),
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          margin:
-                          const EdgeInsets.symmetric(vertical: 8.0),
-                          color: item == _selectedItem
-                              ? Colors.lightBlueAccent
-                              : index.isOdd
-                              ? Colors.grey.shade200
-                              : Colors.white,
                           child: Text(
-                            item,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: isFound
-                                    ? Colors.green
-                                    : Colors.black),
+                            'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
+                            style: TextStyle(color: Colors.red),
                           ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          itemCount: _filteredData.length,
+                          itemBuilder: (context, index) {
+                            final StudentEntity item = _filteredData[index];
+                            final bool isFound =
+                                _searchController.text.isNotEmpty &&
+                                    item.name.toLowerCase().contains(
+                                        _searchController.text.toLowerCase());
+                            return InkWell(
+                              onTap: () => _onItemTap(item),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                color: item == _selectedItem
+                                    ? Colors.lightBlueAccent
+                                    : index.isOdd
+                                        ? Colors.grey.shade200
+                                        : Colors.white,
+                                child: Text(
+                                  item.name,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: isFound
+                                          ? Colors.green
+                                          : Colors.black),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),
