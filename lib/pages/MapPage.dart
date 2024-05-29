@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_integrador/Widget/map-widget.dart';
-import 'package:projeto_integrador/pages/fourthpage.dart';
-import 'secondpage.dart';
-import 'main.dart';
-import 'thirdpage.dart';
+import 'package:projeto_integrador/pages/AdvisorSearchPage.dart';
+import 'StudentSearchPage.dart';
+import 'SearchOptionsPage.dart';
+import 'ProjectSearchPage.dart';
 
 class MapPage extends StatefulWidget {
   final Offset simulatedTapPosition;
@@ -89,7 +89,8 @@ class MapPageState extends State<MapPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
                 );
               },
             ),
@@ -98,7 +99,8 @@ class MapPageState extends State<MapPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
@@ -107,18 +109,21 @@ class MapPageState extends State<MapPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProjectSearchPage()),
                 );
               },
             ),
             ListTile(
               title: const Text('Pesquisa por nome de Orientador'),
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const FourthPage()),
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),
-
           ],
         ),
       ),

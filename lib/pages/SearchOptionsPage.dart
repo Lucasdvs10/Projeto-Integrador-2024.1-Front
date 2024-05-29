@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Widget/map-widget.dart';
+import 'AdvisorSearchPage.dart';
+import 'StudentSearchPage.dart';
+import 'MapPage.dart';
+import 'ProjectSearchPage.dart';
 
-import 'fourthpage.dart';
-import 'secondpage.dart';
-import 'mapa.dart';
-import 'thirdpage.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class SearchOptionsPage extends StatelessWidget {
+  const SearchOptionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +71,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
@@ -82,7 +81,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProjectSearchPage()),
                 );
               },
             ),
@@ -91,7 +91,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),
@@ -100,7 +101,7 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) =>  MapPage()),
+                  MaterialPageRoute(builder: (context) => MapPage()),
                 );
               },
             ),
@@ -120,7 +121,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SecondPage()),
+                          builder: (context) => const StudentSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -147,7 +148,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ThirdPage()),
+                          builder: (context) => const ProjectSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -174,7 +175,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FourthPage()),
+                          builder: (context) => const AdvisorSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(

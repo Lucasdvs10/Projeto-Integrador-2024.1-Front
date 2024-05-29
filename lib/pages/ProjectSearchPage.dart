@@ -3,19 +3,19 @@ import 'package:projeto_integrador/Entities/ProjectEntity.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
-import 'fourthpage.dart';
-import 'secondpage.dart';
-import 'main.dart';
-import 'mapa.dart';
+import 'AdvisorSearchPage.dart';
+import 'StudentSearchPage.dart';
+import 'SearchOptionsPage.dart';
+import 'MapPage.dart';
 
-class ThirdPage extends StatefulWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+class ProjectSearchPage extends StatefulWidget {
+  const ProjectSearchPage({Key? key}) : super(key: key);
 
   @override
-  ThirdPageState createState() => ThirdPageState();
+  ProjectSearchPageState createState() => ProjectSearchPageState();
 }
 
-class ThirdPageState extends State<ThirdPage> {
+class ProjectSearchPageState extends State<ProjectSearchPage> {
   final TextEditingController _searchController = TextEditingController();
   late final List<ProjectEntity> _data;
   late final IProjectRepo _projectRepo;
@@ -130,7 +130,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
                 );
               },
             ),
@@ -139,7 +140,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
@@ -148,7 +150,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),

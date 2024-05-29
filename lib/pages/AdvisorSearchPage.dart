@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Entities/ProjectEntity.dart';
-import 'package:projeto_integrador/Entities/StudentEntity.dart';
+import 'package:projeto_integrador/Entities/AdvisorEntity.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
-import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
-import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
+import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
-import 'package:projeto_integrador/pages/mapa.dart';
+import 'package:projeto_integrador/Widget/booth-widget.dart';
+import 'MapPage.dart';
+import 'StudentSearchPage.dart';
+import 'SearchOptionsPage.dart';
+import 'ProjectSearchPage.dart';
 
-import 'fourthpage.dart';
-import 'main.dart';
-import 'thirdpage.dart';
-
-class SecondPage extends StatefulWidget {
-  const SecondPage({super.key});
+class AdvisorSearchPage extends StatefulWidget {
+  const AdvisorSearchPage({super.key});
 
   @override
-  SecondPageState createState() => SecondPageState();
+  AdvisorSearchPageState createState() => AdvisorSearchPageState();
 }
 
-class SecondPageState extends State<SecondPage> {
+class AdvisorSearchPageState extends State<AdvisorSearchPage> {
   final TextEditingController _searchController = TextEditingController();
-  late final List<StudentEntity> _data;
-  late final IStudentRepo _studentRepo;
-  List<StudentEntity> _filteredData = [];
-  StudentEntity? _selectedItem;
+  late final List<AdvisorEntity> _data;
+
+  List<AdvisorEntity> _filteredData = [];
+  AdvisorEntity? _selectedItem;
+
+  late final IAdvisorRepo _advisorRepo;
 
   @override
   void initState() {
@@ -32,8 +32,8 @@ class SecondPageState extends State<SecondPage> {
   }
 
   void Initialize() async {
-    _studentRepo = RepositoryInjector.GetStudentRepo();
-    _data = await _studentRepo.GetAllStudents();
+    _advisorRepo = RepositoryInjector.GetAdvisorRepo();
+    _data = await _advisorRepo.GetAllAdvisors();
     _filteredData = _data;
   }
 
@@ -50,7 +50,7 @@ class SecondPageState extends State<SecondPage> {
     });
   }
 
-  void _onItemTap(StudentEntity item) async {
+  void _onItemTap(AdvisorEntity item) async {
     setState(() {
       _selectedItem = item;
     });
@@ -74,12 +74,14 @@ class SecondPageState extends State<SecondPage> {
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
 
+    BoothWidget booth =
+        AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
+
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => MapPage(
         startPoint: (56, 8),
-        endPoint: AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!
-            .entryBoothPoint,
+        endPoint: booth.entryBoothPoint,
       ),
     ));
 
@@ -131,28 +133,30 @@ class SecondPageState extends State<SecondPage> {
             ListTile(
               title: const Text('Tela Inicial'),
               onTap: () {
-                // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
                 );
               },
             ),
             ListTile(
-              title: const Text('Pesquisa por nome do projeto'),
+              title: const Text('Pesquisa por nome do aluno'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
             ListTile(
-              title: const Text('Pesquisa por nome do orientador'),
+              title: const Text('Pesquisa por nome de projeto'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProjectSearchPage()),
                 );
               },
             ),
@@ -203,7 +207,7 @@ class SecondPageState extends State<SecondPage> {
                   child: _filteredData.isEmpty
                       ? const Center(
                           child: Text(
-                            'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
+                            'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
                             style: TextStyle(color: Colors.red),
                           ),
                         )
@@ -212,7 +216,7 @@ class SecondPageState extends State<SecondPage> {
                               vertical: 8.0, horizontal: 16.0),
                           itemCount: _filteredData.length,
                           itemBuilder: (context, index) {
-                            final StudentEntity item = _filteredData[index];
+                            final AdvisorEntity item = _filteredData[index];
                             final bool isFound =
                                 _searchController.text.isNotEmpty &&
                                     item.name.toLowerCase().contains(
@@ -229,7 +233,7 @@ class SecondPageState extends State<SecondPage> {
                                         ? Colors.grey.shade200
                                         : Colors.white,
                                 child: Text(
-                                  item.name,
+                                  "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: isFound
