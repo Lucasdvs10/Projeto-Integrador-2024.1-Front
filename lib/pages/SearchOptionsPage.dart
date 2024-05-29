@@ -9,26 +9,6 @@ class SearchOptionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tela Eureka',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF01288D),
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        scaffoldBackgroundColor: Colors.lightBlue[200],
-      ),
-      home:
-          const HomePageContent(), // Alterei para HomePageContent para resolver o problema do Scaffold
-    );
-  }
-}
-
-class HomePageContent extends StatelessWidget {
-  const HomePageContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -192,33 +172,6 @@ class HomePageContent extends StatelessWidget {
                       SizedBox(height: 10),
                       Text(
                         'Nome do Orientador',
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  // Novo botão de MAPA
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    minimumSize: const Size(200, 200),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.map, color: Colors.black, size: 40),
-                      SizedBox(height: 10),
-                      Text(
-                        'Mapa',
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],

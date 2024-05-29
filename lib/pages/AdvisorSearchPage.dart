@@ -69,7 +69,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     );
 
     // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 30));
 
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
@@ -77,13 +77,8 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     BoothWidget booth =
         AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
 
-    // Navegar para a MapPage após fechar o diálogo de carregamento
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => MapPage(
-        startPoint: (56, 8),
-        endPoint: booth.entryBoothPoint,
-      ),
-    ));
+    Navigator.pop(context);
+    Navigator.pop(context, ((56, 8), booth.entryBoothPoint));
 
     // Resetando o item selecionado
     setState(() {

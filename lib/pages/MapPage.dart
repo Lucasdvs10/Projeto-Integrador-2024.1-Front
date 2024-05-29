@@ -23,25 +23,15 @@ class MapPage extends StatefulWidget {
 class MapPageState extends State<MapPage> {
   (int, int)? startPoint;
   (int, int)? endPoint;
+  late MapWidget mapWidget;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (widget.simulatedTapPosition != Offset.zero) {
-        // Simular o toque na posição especificada
-        _simulateTap(widget.simulatedTapPosition);
-      }
-    });
   }
 
-  MapPageState(this.startPoint, this.endPoint);
-
-  void _simulateTap(Offset position) {
-    // Lógica para simular o toque na posição especificada
-    print('Simulated tap at position: $position');
-    // Aqui você pode adicionar a lógica necessária para o MapWidget simular o toque.
-    // Por exemplo, chamando um método dentro do MapWidget que aceita uma posição e executa uma ação.
+  MapPageState(this.startPoint, this.endPoint) {
+    mapWidget = MapWidget.Eureka2023();
   }
 
   @override
@@ -51,11 +41,22 @@ class MapPageState extends State<MapPage> {
         backgroundColor: const Color(0xFF0A2E93),
         title: Row(
           children: [
-            Image.asset(
-              'assets/images/imt_logo.png',
-              width: 150,
-              height: 150,
-            ),
+            TextButton(
+                onPressed: () async {
+                  ((int, int), (int, int)) coordinatesTuple =
+                      await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchOptionsPage()),
+                  );
+
+                  setState(() {
+                    startPoint = coordinatesTuple.$1;
+                    endPoint = coordinatesTuple.$2;
+                    mapWidget.CalculatePathAndRender(startPoint!, endPoint!);
+                  });
+                },
+                child: Text("Pesquisar")),
             const Spacer(),
             const Padding(
               padding: EdgeInsets.only(right: 100.0),
@@ -129,9 +130,7 @@ class MapPageState extends State<MapPage> {
       ),
       body: Container(
         color: Colors.lightBlueAccent,
-        child: Center(
-          child: MapWidget.Eureka2023(startPoint, endPoint),
-        ),
+        child: Center(child: mapWidget),
       ),
     );
   }

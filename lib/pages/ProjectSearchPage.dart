@@ -3,6 +3,7 @@ import 'package:projeto_integrador/Entities/ProjectEntity.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
+import 'package:projeto_integrador/Widget/booth-widget.dart';
 import 'AdvisorSearchPage.dart';
 import 'StudentSearchPage.dart';
 import 'SearchOptionsPage.dart';
@@ -66,19 +67,16 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
     );
 
     // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 30));
 
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
 
-    // Navegar para a MapPage após fechar o diálogo de carregamento
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => MapPage(
-        startPoint: (56, 8),
-        endPoint: AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!
-            .entryBoothPoint,
-      ),
-    ));
+    BoothWidget targetBooth =
+        AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!;
+
+    Navigator.pop(context);
+    Navigator.pop(context, ((56, 8), targetBooth.entryBoothPoint));
 
     // Resetando o item selecionado
     setState(() {

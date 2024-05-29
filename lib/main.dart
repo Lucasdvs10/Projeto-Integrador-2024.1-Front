@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
-import 'package:projeto_integrador/Widget/map-widget.dart';
-import 'package:projeto_integrador/pages/SearchOptionsPage.dart';
+import 'package:projeto_integrador/pages/MapPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +16,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black12),
           useMaterial3: true,
         ),
-        home: SearchOptionsPage());
+        home: MapPage());
   }
 }
