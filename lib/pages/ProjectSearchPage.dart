@@ -3,19 +3,20 @@ import 'package:projeto_integrador/Entities/ProjectEntity.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
-import 'fourthpage.dart';
-import 'secondpage.dart';
-import 'main.dart';
-import 'mapa.dart';
+import 'package:projeto_integrador/Widget/booth-widget.dart';
+import 'AdvisorSearchPage.dart';
+import 'StudentSearchPage.dart';
+import 'SearchOptionsPage.dart';
+import 'MapPage.dart';
 
-class ThirdPage extends StatefulWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+class ProjectSearchPage extends StatefulWidget {
+  const ProjectSearchPage({Key? key}) : super(key: key);
 
   @override
-  ThirdPageState createState() => ThirdPageState();
+  ProjectSearchPageState createState() => ProjectSearchPageState();
 }
 
-class ThirdPageState extends State<ThirdPage> {
+class ProjectSearchPageState extends State<ProjectSearchPage> {
   final TextEditingController _searchController = TextEditingController();
   late final List<ProjectEntity> _data;
   late final IProjectRepo _projectRepo;
@@ -66,19 +67,16 @@ class ThirdPageState extends State<ThirdPage> {
     );
 
     // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 30));
 
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
 
-    // Navegar para a MapPage após fechar o diálogo de carregamento
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => MapPage(
-        startPoint: (56, 8),
-        endPoint: AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!
-            .entryBoothPoint,
-      ),
-    ));
+    BoothWidget targetBooth =
+        AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!;
+
+    Navigator.pop(context);
+    Navigator.pop(context, ((56, 8), targetBooth.entryBoothPoint));
 
     // Resetando o item selecionado
     setState(() {
@@ -130,7 +128,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
                 );
               },
             ),
@@ -139,7 +138,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
@@ -148,7 +148,8 @@ class ThirdPageState extends State<ThirdPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),

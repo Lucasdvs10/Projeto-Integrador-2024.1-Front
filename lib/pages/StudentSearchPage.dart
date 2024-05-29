@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Entities/AdvisorEntity.dart';
+import 'package:projeto_integrador/Entities/ProjectEntity.dart';
+import 'package:projeto_integrador/Entities/StudentEntity.dart';
 import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
-import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
+import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
+import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
 import 'package:projeto_integrador/Widget/booth-widget.dart';
-import 'mapa.dart';
-import 'secondpage.dart';
-import 'main.dart';
-import 'thirdpage.dart';
+import 'package:projeto_integrador/pages/MapPage.dart';
 
-class FourthPage extends StatefulWidget {
-  const FourthPage({super.key});
+import 'AdvisorSearchPage.dart';
+import 'SearchOptionsPage.dart';
+import 'ProjectSearchPage.dart';
+
+class StudentSearchPage extends StatefulWidget {
+  const StudentSearchPage({super.key});
 
   @override
-  FourthPageState createState() => FourthPageState();
+  StudentSearchPageState createState() => StudentSearchPageState();
 }
 
-class FourthPageState extends State<FourthPage> {
+class StudentSearchPageState extends State<StudentSearchPage> {
   final TextEditingController _searchController = TextEditingController();
-  late final List<AdvisorEntity> _data;
-
-  List<AdvisorEntity> _filteredData = [];
-  AdvisorEntity? _selectedItem;
-
-  late final IAdvisorRepo _advisorRepo;
+  late final List<StudentEntity> _data;
+  late final IStudentRepo _studentRepo;
+  List<StudentEntity> _filteredData = [];
+  StudentEntity? _selectedItem;
 
   @override
   void initState() {
@@ -32,8 +33,8 @@ class FourthPageState extends State<FourthPage> {
   }
 
   void Initialize() async {
-    _advisorRepo = RepositoryInjector.GetAdvisorRepo();
-    _data = await _advisorRepo.GetAllAdvisors();
+    _studentRepo = RepositoryInjector.GetStudentRepo();
+    _data = await _studentRepo.GetAllStudents();
     _filteredData = _data;
   }
 
@@ -50,7 +51,7 @@ class FourthPageState extends State<FourthPage> {
     });
   }
 
-  void _onItemTap(AdvisorEntity item) async {
+  void _onItemTap(StudentEntity item) async {
     setState(() {
       _selectedItem = item;
     });
@@ -69,21 +70,16 @@ class FourthPageState extends State<FourthPage> {
     );
 
     // Adicionando uma pequena pausa antes de fechar o diálogo de carregamento
-    await Future.delayed(const Duration(milliseconds: 3000));
+    await Future.delayed(const Duration(milliseconds: 30));
 
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
 
-    BoothWidget booth =
-        AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
+    BoothWidget targetBooth =
+        AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!;
 
-    // Navegar para a MapPage após fechar o diálogo de carregamento
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => MapPage(
-        startPoint: (56, 8),
-        endPoint: booth.entryBoothPoint,
-      ),
-    ));
+    Navigator.pop(context);
+    Navigator.pop(context, ((56, 8), targetBooth.entryBoothPoint));
 
     // Resetando o item selecionado
     setState(() {
@@ -133,27 +129,31 @@ class FourthPageState extends State<FourthPage> {
             ListTile(
               title: const Text('Tela Inicial'),
               onTap: () {
+                // Voltar à tela inicial quando a "Opção 1" é selecionada
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SearchOptionsPage()),
                 );
               },
             ),
             ListTile(
-              title: const Text('Pesquisa por nome do aluno'),
+              title: const Text('Pesquisa por nome do projeto'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProjectSearchPage()),
                 );
               },
             ),
             ListTile(
-              title: const Text('Pesquisa por nome de projeto'),
+              title: const Text('Pesquisa por nome do orientador'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),
@@ -204,7 +204,7 @@ class FourthPageState extends State<FourthPage> {
                   child: _filteredData.isEmpty
                       ? const Center(
                           child: Text(
-                            'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
+                            'Aluno não encontrado! Verifique se o nome está escrito corretamente.',
                             style: TextStyle(color: Colors.red),
                           ),
                         )
@@ -213,7 +213,7 @@ class FourthPageState extends State<FourthPage> {
                               vertical: 8.0, horizontal: 16.0),
                           itemCount: _filteredData.length,
                           itemBuilder: (context, index) {
-                            final AdvisorEntity item = _filteredData[index];
+                            final StudentEntity item = _filteredData[index];
                             final bool isFound =
                                 _searchController.text.isNotEmpty &&
                                     item.name.toLowerCase().contains(
@@ -230,7 +230,7 @@ class FourthPageState extends State<FourthPage> {
                                         ? Colors.grey.shade200
                                         : Colors.white,
                                 child: Text(
-                                  "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
+                                  item.name,
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: isFound

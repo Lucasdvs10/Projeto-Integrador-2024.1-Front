@@ -1,33 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_integrador/Widget/map-widget.dart';
+import 'AdvisorSearchPage.dart';
+import 'StudentSearchPage.dart';
+import 'MapPage.dart';
+import 'ProjectSearchPage.dart';
 
-import 'fourthpage.dart';
-import 'secondpage.dart';
-import 'mapa.dart';
-import 'thirdpage.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tela Eureka',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF01288D),
-          iconTheme: IconThemeData(color: Colors.white),
-        ),
-        scaffoldBackgroundColor: Colors.lightBlue[200],
-      ),
-      home:
-          const HomePageContent(), // Alterei para HomePageContent para resolver o problema do Scaffold
-    );
-  }
-}
-
-class HomePageContent extends StatelessWidget {
-  const HomePageContent({super.key});
+class SearchOptionsPage extends StatelessWidget {
+  const SearchOptionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +51,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const StudentSearchPage()),
                 );
               },
             ),
@@ -82,7 +61,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const ThirdPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const ProjectSearchPage()),
                 );
               },
             ),
@@ -91,7 +71,8 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const AdvisorSearchPage()),
                 );
               },
             ),
@@ -100,7 +81,7 @@ class HomePageContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) =>  MapPage()),
+                  MaterialPageRoute(builder: (context) => MapPage()),
                 );
               },
             ),
@@ -120,7 +101,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SecondPage()),
+                          builder: (context) => const StudentSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -147,7 +128,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ThirdPage()),
+                          builder: (context) => const ProjectSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -174,7 +155,7 @@ class HomePageContent extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FourthPage()),
+                          builder: (context) => const AdvisorSearchPage()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -191,33 +172,6 @@ class HomePageContent extends StatelessWidget {
                       SizedBox(height: 10),
                       Text(
                         'Nome do Orientador',
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  // Novo botão de MAPA
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MapPage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    minimumSize: const Size(200, 200),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.map, color: Colors.black, size: 40),
-                      SizedBox(height: 10),
-                      Text(
-                        'Mapa',
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
