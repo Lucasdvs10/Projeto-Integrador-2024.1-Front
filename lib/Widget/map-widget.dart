@@ -48,7 +48,7 @@ class _MapWidgetState extends State<MapWidget> {
   void _PaintPathOnGrid((int, int) matrixSize) {
     for (var cell in pathBeingRendered) {
       renderizedGrid[cell.row * matrixSize.$2 + cell.column] =
-          Container(color: Colors.cyan);
+          Container(color: Colors.black);
     }
   }
 
