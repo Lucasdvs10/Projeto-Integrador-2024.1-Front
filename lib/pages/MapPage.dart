@@ -43,7 +43,7 @@ class MapPageState extends State<MapPage> {
           children: [
             TextButton(
                 onPressed: () async {
-                  ((int, int), (int, int)) coordinatesTuple =
+                  ((int, int), (int, int))? coordinatesTuple =
                       await Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -51,6 +51,7 @@ class MapPageState extends State<MapPage> {
                   );
 
                   setState(() {
+                    if (coordinatesTuple == null) return;
                     startPoint = coordinatesTuple.$1;
                     endPoint = coordinatesTuple.$2;
                     mapWidget.CalculatePathAndRender(startPoint!, endPoint!);
