@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Entities/AdvisorEntity.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
+import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
+import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
+import 'package:projeto_integrador/Widget/booth-widget.dart';
 import 'mapa.dart';
 import 'secondpage.dart';
 import 'main.dart';
@@ -13,25 +18,22 @@ class FourthPage extends StatefulWidget {
 
 class FourthPageState extends State<FourthPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<String> _data = [
-    ' Orientador Teste',
-    'Dados 2',
-    'Dados 3',
-    'Dados 4',
-    'Dados 5',
-    'Dados 6',
-    'Dados 7',
-    'Dados 8',
-    'Dados 9',
-    ' Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
-  ];
+  late final List<AdvisorEntity> _data;
 
-  List<String> _filteredData = [];
-  String? _selectedItem;
+  List<AdvisorEntity> _filteredData = [];
+  AdvisorEntity? _selectedItem;
+
+  late final IAdvisorRepo _advisorRepo;
 
   @override
   void initState() {
     super.initState();
+    Initialize();
+  }
+
+  void Initialize() async {
+    _advisorRepo = RepositoryInjector.GetAdvisorRepo();
+    _data = await _advisorRepo.GetAllAdvisors();
     _filteredData = _data;
   }
 
@@ -39,7 +41,8 @@ class FourthPageState extends State<FourthPage> {
     setState(() {
       if (query.isNotEmpty) {
         _filteredData = _data
-            .where((element) => element.toLowerCase().contains(query.toLowerCase()))
+            .where((element) =>
+                element.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
@@ -47,7 +50,7 @@ class FourthPageState extends State<FourthPage> {
     });
   }
 
-  void _onItemTap(String item) async {
+  void _onItemTap(AdvisorEntity item) async {
     setState(() {
       _selectedItem = item;
     });
@@ -71,9 +74,15 @@ class FourthPageState extends State<FourthPage> {
     // Fechar o diálogo de carregamento
     Navigator.of(context, rootNavigator: true).pop();
 
+    BoothWidget booth =
+        AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
+
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const MapPage(),
+      builder: (context) => MapPage(
+        startPoint: (56, 8),
+        endPoint: booth.entryBoothPoint,
+      ),
     ));
 
     // Resetando o item selecionado
@@ -153,7 +162,7 @@ class FourthPageState extends State<FourthPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MapPage()),
+                  MaterialPageRoute(builder: (context) => MapPage()),
                 );
               },
             ),
@@ -194,34 +203,44 @@ class FourthPageState extends State<FourthPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? const Center(
-                    child: Text(
-                      'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  )
-                      : ListView.builder(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                    itemCount: _filteredData.length,
-                    itemBuilder: (context, index) {
-                      final String item = _filteredData[index];
-                      final bool isFound = _searchController.text.isNotEmpty &&
-                          item.toLowerCase().contains(_searchController.text.toLowerCase());
-                      return InkWell(
-                        onTap: () => _onItemTap(item),
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          margin: const EdgeInsets.symmetric(vertical: 8.0),
-                          color: item == _selectedItem
-                              ? Colors.lightBlueAccent
-                              : index.isOdd ? Colors.grey.shade200 : Colors.white,
                           child: Text(
-                            item,
-                            style: TextStyle(fontSize: 20, color: isFound ? Colors.green : Colors.black),
+                            'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
+                            style: TextStyle(color: Colors.red),
                           ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          itemCount: _filteredData.length,
+                          itemBuilder: (context, index) {
+                            final AdvisorEntity item = _filteredData[index];
+                            final bool isFound =
+                                _searchController.text.isNotEmpty &&
+                                    item.name.toLowerCase().contains(
+                                        _searchController.text.toLowerCase());
+                            return InkWell(
+                              onTap: () => _onItemTap(item),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                color: item == _selectedItem
+                                    ? Colors.lightBlueAccent
+                                    : index.isOdd
+                                        ? Colors.grey.shade200
+                                        : Colors.white,
+                                child: Text(
+                                  "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: isFound
+                                          ? Colors.green
+                                          : Colors.black),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),
