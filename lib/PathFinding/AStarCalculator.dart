@@ -4,7 +4,8 @@ import 'package:projeto_integrador/PathFinding/GridMap.dart';
 class AStarCalculator {
   late GridMap _gridMap;
 
-  List<CellEntity> CalculatePathByCoordinates((int, int) startPoint, (int, int) endPoint) {
+  List<CellEntity> CalculatePathByCoordinates(
+      (int, int) startPoint, (int, int) endPoint) {
     CellEntity startCell =
         _gridMap.getCellsMatrix()[startPoint.$1][startPoint.$2];
     CellEntity endCell = _gridMap.getCellsMatrix()[endPoint.$1][endPoint.$2];
@@ -86,13 +87,9 @@ class AStarCalculator {
 
     Set<CellEntity> neighborsSet = {
       cellsMatrix[previousRow][currentColumn],
-      cellsMatrix[previousRow][nextColumn],
       cellsMatrix[currentRow][nextColumn],
-      cellsMatrix[nextRow][nextColumn],
       cellsMatrix[nextRow][currentColumn],
-      cellsMatrix[nextRow][previousColumn],
       cellsMatrix[currentRow][previousColumn],
-      cellsMatrix[previousRow][previousColumn],
     };
 
     return neighborsSet;
