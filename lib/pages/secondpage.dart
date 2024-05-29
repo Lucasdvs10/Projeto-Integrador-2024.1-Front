@@ -75,7 +75,7 @@ class SecondPageState extends State<SecondPage> {
 
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const MapPage(),
+      builder: (context) =>  MapPage(),
     ));
 
     // Resetando o item selecionado
@@ -156,7 +156,7 @@ class SecondPageState extends State<SecondPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MapPage()),
+                  MaterialPageRoute(builder: (context) => MapPage()),
                 );
               },
             ),

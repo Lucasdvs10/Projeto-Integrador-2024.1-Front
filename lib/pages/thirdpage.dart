@@ -74,7 +74,7 @@ class ThirdPageState extends State<ThirdPage> {
 
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const MapPage(simulatedTapPosition: Offset(0, 10)),
+      builder: (context) =>  MapPage(simulatedTapPosition: Offset(0, 10)),
     ));
 
     // Resetando o item selecionado
@@ -153,7 +153,7 @@ class ThirdPageState extends State<ThirdPage> {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const MapPage()),
+                    MaterialPageRoute(builder: (context) => MapPage()),
                   );
                 },
               ),

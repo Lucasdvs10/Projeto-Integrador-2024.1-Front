@@ -73,7 +73,7 @@ class FourthPageState extends State<FourthPage> {
 
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const MapPage(),
+      builder: (context) =>  MapPage(),
     ));
 
     // Resetando o item selecionado
@@ -153,7 +153,7 @@ class FourthPageState extends State<FourthPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => const MapPage()),
+                  MaterialPageRoute(builder: (context) =>  MapPage()),
                 );
               },
             ),
