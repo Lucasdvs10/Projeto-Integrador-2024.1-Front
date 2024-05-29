@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_integrador/Entities/ProjectEntity.dart';
+import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
+import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
+import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
 import 'fourthpage.dart';
 import 'secondpage.dart';
 import 'main.dart';
@@ -13,25 +17,20 @@ class ThirdPage extends StatefulWidget {
 
 class ThirdPageState extends State<ThirdPage> {
   final TextEditingController _searchController = TextEditingController();
-  final List<String> _data = [
-    'Projeto Teste',
-    'Dados 2',
-    'Dados 3',
-    'Dados 4',
-    'Dados 5',
-    'Dados 6',
-    'Dados 7',
-    'Dados 8',
-    'Dados 9',
-    'Gabriel Garcia (Finance) \n--------------------------------------------------------------------------------------------\n Fazendo dinheiro pra caralho com atividades ilegítimas \n + scam workshop \n--------------------------------------------------------------------------------------------\n Estande 420'
-  ];
-
-  List<String> _filteredData = [];
-  String? _selectedItem;
+  late final List<ProjectEntity> _data;
+  late final IProjectRepo _projectRepo;
+  List<ProjectEntity> _filteredData = [];
+  ProjectEntity? _selectedItem;
 
   @override
   void initState() {
     super.initState();
+    Initialize();
+  }
+
+  void Initialize() async {
+    _projectRepo = RepositoryInjector.GetProjectRepo();
+    _data = await _projectRepo.GetAllProjects();
     _filteredData = _data;
   }
 
@@ -40,7 +39,7 @@ class ThirdPageState extends State<ThirdPage> {
       if (query.isNotEmpty) {
         _filteredData = _data
             .where((element) =>
-            element.toLowerCase().contains(query.toLowerCase()))
+                element.projectName.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
@@ -48,7 +47,7 @@ class ThirdPageState extends State<ThirdPage> {
     });
   }
 
-  void _onItemTap(String item) async {
+  void _onItemTap(ProjectEntity item) async {
     setState(() {
       _selectedItem = item;
     });
@@ -74,7 +73,11 @@ class ThirdPageState extends State<ThirdPage> {
 
     // Navegar para a MapPage após fechar o diálogo de carregamento
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) =>  MapPage(simulatedTapPosition: Offset(0, 10)),
+      builder: (context) => MapPage(
+        startPoint: (56, 8),
+        endPoint: AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!
+            .entryBoothPoint,
+      ),
     ));
 
     // Resetando o item selecionado
@@ -108,56 +111,57 @@ class ThirdPageState extends State<ThirdPage> {
       ),
       endDrawer: Drawer(
         child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-        const DrawerHeader(
-        decoration: BoxDecoration(
-            color: Color(0xFF0A2E93),
-      ),
-      child: Text(
-        'Menu',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-        ),
-      ),
-    ),
-    ListTile(
-    title: const Text('Tela Inicial'),
-    onTap: () {
-    Navigator.pushReplacement( context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
-    },
-    ),
-              ListTile(
-                title: const Text('Pesquisa por nome do aluno'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
-                  );
-                },
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF0A2E93),
               ),
-              ListTile(
-                title: const Text('Pesquisa por nome de Orientador'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const FourthPage()),
-                  );
-                },
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
               ),
-              ListTile(
-                title: const Text('Mapa'),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MapPage()),
-                  );
-                },
-              ),
-            ],
+            ),
+            ListTile(
+              title: const Text('Tela Inicial'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Pesquisa por nome do aluno'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Pesquisa por nome de Orientador'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FourthPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('Mapa'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapPage()),
+                );
+              },
+            ),
+          ],
         ),
       ),
       body: Container(
@@ -194,44 +198,44 @@ class ThirdPageState extends State<ThirdPage> {
                 Expanded(
                   child: _filteredData.isEmpty
                       ? const Center(
-                    child: Text(
-                      'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  )
-                      : ListView.builder(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 16.0),
-                    itemCount: _filteredData.length,
-                    itemBuilder: (context, index) {
-                      final String item = _filteredData[index];
-                      final bool isFound = _searchController.text
-                          .isNotEmpty &&
-                          item.toLowerCase().contains(
-                              _searchController.text.toLowerCase());
-                      return InkWell(
-                        onTap: () => _onItemTap(item),
-                        child: Container(
-                          padding: const EdgeInsets.all(16.0),
-                          margin:
-                          const EdgeInsets.symmetric(vertical: 8.0),
-                          color: item == _selectedItem
-                              ? Colors.lightBlueAccent
-                              : index.isOdd
-                              ? Colors.grey.shade200
-                              : Colors.white,
                           child: Text(
-                            item,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: isFound
-                                    ? Colors.green
-                                    : Colors.black),
+                            'Projeto não encontrado! Verifique se o mesmo está escrito corretamente.',
+                            style: TextStyle(color: Colors.red),
                           ),
+                        )
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 16.0),
+                          itemCount: _filteredData.length,
+                          itemBuilder: (context, index) {
+                            final ProjectEntity item = _filteredData[index];
+                            final bool isFound =
+                                _searchController.text.isNotEmpty &&
+                                    item.projectName.toLowerCase().contains(
+                                        _searchController.text.toLowerCase());
+                            return InkWell(
+                              onTap: () => _onItemTap(item),
+                              child: Container(
+                                padding: const EdgeInsets.all(16.0),
+                                margin:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                color: item == _selectedItem
+                                    ? Colors.lightBlueAccent
+                                    : index.isOdd
+                                        ? Colors.grey.shade200
+                                        : Colors.white,
+                                child: Text(
+                                  item.projectName,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: isFound
+                                          ? Colors.green
+                                          : Colors.black),
+                                ),
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
                 ),
               ],
             ),
