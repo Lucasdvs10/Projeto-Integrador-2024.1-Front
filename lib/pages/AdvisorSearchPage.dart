@@ -35,6 +35,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     _advisorRepo = RepositoryInjector.GetAdvisorRepo();
     _data = await _advisorRepo.GetAllAdvisors();
     _filteredData = _data;
+    setState(() {});
   }
 
   void _filterData(String query) {

@@ -33,6 +33,7 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
     _projectRepo = RepositoryInjector.GetProjectRepo();
     _data = await _projectRepo.GetAllProjects();
     _filteredData = _data;
+    setState(() {});
   }
 
   void _filterData(String query) {

@@ -36,6 +36,7 @@ class StudentSearchPageState extends State<StudentSearchPage> {
     _studentRepo = RepositoryInjector.GetStudentRepo();
     _data = await _studentRepo.GetAllStudents();
     _filteredData = _data;
+    setState(() {});
   }
 
   void _filterData(String query) {
