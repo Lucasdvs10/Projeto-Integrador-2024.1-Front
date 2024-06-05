@@ -16,8 +16,24 @@ void main() {
     CellEntity startCell = CellEntity(1, 0, true);
     CellEntity targetCell = CellEntity(1, 2, true);
 
-    currentCell.setPreviousCellAndCalculateFCost(startCell, startCell, targetCell);
+    startCell.setGAndHCosts(startCell, targetCell, true);
+    currentCell.setPreviousCellAndCalculateFCost(
+        startCell, startCell, targetCell);
 
     expect(currentCell.getFCost(), 2);
+  });
+
+  test('Reset all values', () {
+    CellEntity currentCell = CellEntity(1, 1, true);
+    CellEntity startCell = CellEntity(1, 0, true);
+    CellEntity targetCell = CellEntity(1, 2, true);
+
+    currentCell.setPreviousCellAndCalculateFCost(
+        startCell, startCell, targetCell);
+
+    currentCell.Reset();
+    expect(currentCell.getFCost(), 0);
+    expect(currentCell.GetGCost(), 10000);
+    expect(currentCell.GetHCost(), 0);
   });
 }

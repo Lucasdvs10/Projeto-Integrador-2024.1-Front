@@ -14,59 +14,50 @@ class AStarCalculator {
   }
 
   List<CellEntity> CalculatePath(CellEntity startCell, CellEntity targetCell) {
-    startCell.setGAndHCosts(startCell, targetCell);
-
     Set<CellEntity> openSet = {startCell};
     Set<CellEntity> closedSet = {};
-
-    CellEntity currentCell = _GetCheapestCell(openSet);
+    startCell.setGAndHCosts(startCell, targetCell, true);
+    CellEntity currentCell = startCell;
 
     while (openSet.isNotEmpty) {
       currentCell = _GetCheapestCell(openSet);
 
-      if (!currentCell.walkable) continue;
-
-      if (currentCell.row == targetCell.row &&
-          currentCell.column == targetCell.column) break;
-
+      if (currentCell == targetCell) {
+        break;
+      }
       openSet.remove(currentCell);
       closedSet.add(currentCell);
-      _CalculateFCostForCurrentNeighbors(currentCell, startCell, targetCell);
 
-      Set<CellEntity> neighborsSet = _GetNeighborsSet(currentCell);
-      for (var neighbor in neighborsSet) {
+      var neighborsSet = _GetNeighborsSet(currentCell);
+      for (CellEntity neighbor in neighborsSet) {
         if (!neighbor.walkable || closedSet.contains(neighbor)) continue;
-
+        int oldGCost = neighbor.GetGCost();
+        CellEntity previousParent = neighbor.getPreviousCell() ?? currentCell;
         neighbor.setPreviousCellAndCalculateFCost(
             currentCell, startCell, targetCell);
 
-        if (!openSet.contains(neighbor)) {
-          neighbor.setPreviousCellAndCalculateFCost(
-              currentCell, startCell, targetCell);
+        if (oldGCost > neighbor.GetGCost()) {
           openSet.add(neighbor);
         } else {
-          int oldFCost = neighbor.getFCost();
-          CellEntity oldPrevious = neighbor.getPreviousCell()!;
-
           neighbor.setPreviousCellAndCalculateFCost(
-              currentCell, startCell, targetCell);
-
-          if (neighbor.getFCost() > oldFCost) {
-            neighbor.setPreviousCellAndCalculateFCost(
-                oldPrevious, startCell, targetCell);
-          }
+              previousParent, startCell, targetCell);
         }
       }
     }
 
     List<CellEntity> path = [];
-
     while (currentCell != startCell) {
       path.insert(0, currentCell);
       currentCell = currentCell.getPreviousCell()!;
     }
 
     path.insert(0, startCell);
+
+    for (var i = 0; i < _gridMap.getCellsMatrix().length; i++) { //Resetar os valores de cada célula após calcular o caminho
+      for (var j = 0; j < _gridMap.getCellsMatrix()[i].length; j++) { //Se não fizermos isso, o próximo cálculo será afetado
+        _gridMap.getCellsMatrix()[i][j].Reset();
+      }
+    }
 
     return path;
   }
@@ -95,20 +86,12 @@ class AStarCalculator {
     return neighborsSet;
   }
 
-  void _CalculateFCostForCurrentNeighbors(
-      CellEntity currentCell, CellEntity startCell, CellEntity targetCell) {
-    var neighborsSet = _GetNeighborsSet(currentCell);
-
-    for (var cell in neighborsSet) {
-      cell.setGAndHCosts(startCell, targetCell);
-    }
-  }
-
   CellEntity _GetCheapestCell(Set<CellEntity> cellsSet) {
     CellEntity cheapestCell = cellsSet.first;
 
     for (var cell in cellsSet) {
-      if (cell.GetHCost() <= 0) return cell;
+      if (!cell.walkable) continue;
+      if (cell.GetHCost() <= 0) return cell; //It's the target cell
 
       if (cell.getFCost() < cheapestCell.getFCost()) {
         cheapestCell = cell;
