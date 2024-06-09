@@ -11,22 +11,18 @@ class SearchOptionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        backgroundColor: const Color(0xFF0A2E93),
+        title: const Row(
           children: [
-            Image.asset(
-              'assets/images/imt_logo.png',
-              width: 150,
-              height: 150,
-            ),
-            const Spacer(),
-            const Padding(
+            Spacer(),
+            Padding(
               padding: EdgeInsets.only(right: 100.0),
               child: Text(
                 'EUREKA',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            const Spacer(),
+            Spacer(),
           ],
         ),
       ),

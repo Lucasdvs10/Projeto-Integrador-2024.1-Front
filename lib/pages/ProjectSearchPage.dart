@@ -89,13 +89,9 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF0A2E93),
         title: Row(
           children: [
-            Image.asset(
-              'assets/images/imt_logo.png',
-              width: 150,
-              height: 150,
-            ),
             const Spacer(),
             const Padding(
               padding: EdgeInsets.only(right: 100.0),
