@@ -7,112 +7,112 @@ class AllBoothsMap {
       //Estande 1
       superiorLeftPoint: (3, 0),
       sizes: (4, 2),
-      color: Colors.green,
+      color: GetColorQMD(),
       boothNumber: 161,
     ),
     BoothWidget(
       //Estande 2
       superiorLeftPoint: (7, 0),
       sizes: (4, 2),
-      color: Colors.red,
+      color: GetColorCAN(),
       boothNumber: 159,
     ),
     BoothWidget(
       //Estande 3
       superiorLeftPoint: (11, 0),
       sizes: (4, 2),
-      color: Colors.green,
+      color: GetColorMCN(),
       boothNumber: 157,
     ),
     BoothWidget(
       //Estande 4
       superiorLeftPoint: (15, 0),
       sizes: (4, 2),
-      color: Colors.orange,
+      color: GetColorEND(),
       boothNumber: 155,
     ),
     BoothWidget(
       //Estande 5
       superiorLeftPoint: (19, 0),
       sizes: (4, 2),
-      color: Colors.green,
+      color: GetColorCMD(),
       boothNumber: 153,
     ),
     BoothWidget(
       //Estande 6
       superiorLeftPoint: (23, 0),
       sizes: (4, 2),
-      color: Colors.pink,
+      color: GetColorPMD(),
       boothNumber: 151,
     ),
     BoothWidget(
       //Estande 7
       superiorLeftPoint: (27, 0),
       sizes: (7, 2),
-      color: Colors.green,
+      color: GetColorCMD(),
       boothNumber: 149,
     ),
     BoothWidget(
       //Estande 8
       superiorLeftPoint: (34, 0),
       sizes: (2, 2),
-      color: Colors.blue,
+      color: GetColorCAN(),
       boothNumber: 147,
     ),
     BoothWidget(
       //Estande 9
       superiorLeftPoint: (36, 0),
       sizes: (2, 2),
-      color: Colors.green,
+      color: GetColorCMD(),
       boothNumber: 145,
     ),
     BoothWidget(
       //Estande 10
       superiorLeftPoint: (38, 0),
       sizes: (3, 2),
-      color: Colors.purple,
+      color: GetColorCMD(),
       boothNumber: 143,
     ),
     BoothWidget(
       //Estande 11
       superiorLeftPoint: (41, 0),
       sizes: (2, 2),
-      color: Colors.orange,
+      color: GetColorCVD(),
       boothNumber: 141,
     ),
     BoothWidget(
       //Estande 12
       superiorLeftPoint: (43, 0),
       sizes: (2, 2),
-      color: Colors.purple,
+      color: GetColorCVN(),
       boothNumber: 139,
     ),
     BoothWidget(
       //Estande 13
       superiorLeftPoint: (45, 0),
       sizes: (3, 2),
-      color: Colors.green,
+      color: GetColorQMN(),
       boothNumber: 137,
     ),
     BoothWidget(
       //Estande 14
       superiorLeftPoint: (48, 0),
       sizes: (2, 2),
-      color: Colors.blue,
+      color: GetColorCMD(),
       boothNumber: 135,
     ),
     BoothWidget(
       //Estande 15
       superiorLeftPoint: (50, 0),
       sizes: (2, 2),
-      color: Colors.orange,
+      color: GetColorPMN(),
       boothNumber: 133,
     ),
     BoothWidget(
       //Estande 16
       superiorLeftPoint: (52, 0),
       sizes: (2, 2),
-      color: Colors.purple,
+      color: GetColorADMD(),
       boothNumber: 131,
     ),
     BoothWidget(
@@ -120,7 +120,7 @@ class AllBoothsMap {
       superiorLeftPoint: (3, 4),
       entryBoothPoint: (5, 8),
       sizes: (3, 4),
-      color: Colors.brown,
+      color: GetColorELD(),
       boothNumber: 127,
     ),
     BoothWidget(
@@ -128,7 +128,7 @@ class AllBoothsMap {
       superiorLeftPoint: (6, 4),
       sizes: (3, 2),
       entryBoothPoint: (8, 3),
-      color: Colors.green,
+      color: GetColorQMD(),
       boothNumber: 152,
     ),
     BoothWidget(
@@ -136,7 +136,7 @@ class AllBoothsMap {
       superiorLeftPoint: (6, 6),
       sizes: (3, 2),
       entryBoothPoint: (8, 8),
-      color: Colors.pinkAccent,
+      color: GetColorDSGD(),
       boothNumber: 125,
     ),
     BoothWidget(
@@ -144,7 +144,7 @@ class AllBoothsMap {
       superiorLeftPoint: (9, 4),
       sizes: (3, 2),
       entryBoothPoint: (11, 3),
-      color: Colors.blue,
+      color: GetColorPMN(),
       boothNumber: 150,
     ),
     BoothWidget(
@@ -152,7 +152,7 @@ class AllBoothsMap {
       superiorLeftPoint: (9, 6),
       sizes: (3, 2),
       entryBoothPoint: (11, 8),
-      color: Colors.orange,
+      color: GetColorCMD(),
       boothNumber: 123,
     ),
     BoothWidget(
@@ -160,7 +160,7 @@ class AllBoothsMap {
       superiorLeftPoint: (12, 4),
       sizes: (3, 2),
       entryBoothPoint: (14, 3),
-      color: Colors.purple,
+      color: GetColorADMD(),
       boothNumber: 148,
     ),
     BoothWidget(
@@ -168,7 +168,7 @@ class AllBoothsMap {
       superiorLeftPoint: (12, 6),
       sizes: (3, 2),
       entryBoothPoint: (14, 8),
-      color: Colors.red,
+      color: GetColorMCN(),
       boothNumber: 121,
     ),
     BoothWidget(
@@ -176,7 +176,7 @@ class AllBoothsMap {
       superiorLeftPoint: (15, 4),
       sizes: (2, 2),
       entryBoothPoint: (17, 4),
-      color: Colors.green,
+      color: GetColorCVD(),
       boothNumber: 146,
     ),
     BoothWidget(
@@ -184,7 +184,7 @@ class AllBoothsMap {
       superiorLeftPoint: (15, 6),
       sizes: (2, 2),
       entryBoothPoint: (17, 7),
-      color: Colors.blue,
+      color: GetColorCAN(),
       boothNumber: 119,
     ),
     BoothWidget(
@@ -192,7 +192,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 4),
       sizes: (3, 2),
       entryBoothPoint: (22, 3),
-      color: Colors.brown,
+      color: GetColorEND(),
       boothNumber: 144,
     ),
     BoothWidget(
@@ -200,7 +200,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 6),
       sizes: (3, 2),
       entryBoothPoint: (22, 8),
-      color: Colors.red,
+      color: GetColorADMD(),
       boothNumber: 117,
     ),
     BoothWidget(
@@ -208,7 +208,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 4),
       sizes: (3, 2),
       entryBoothPoint: (25, 3),
-      color: Colors.green,
+      color: GetColorQMN(),
       boothNumber: 142,
     ),
     BoothWidget(
@@ -216,7 +216,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 6),
       sizes: (3, 2),
       entryBoothPoint: (25, 8),
-      color: Colors.purple,
+      color: GetColorDSGN(),
       boothNumber: 115,
     ),
     BoothWidget(
@@ -224,7 +224,7 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 4),
       sizes: (3, 2),
       entryBoothPoint: (28, 3),
-      color: Colors.blue,
+      color: GetColorPMN(),
       boothNumber: 140,
     ),
     BoothWidget(
@@ -232,7 +232,7 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 6),
       sizes: (3, 2),
       entryBoothPoint: (28, 8),
-      color: Colors.orange,
+      color: GetColorPMN(),
       boothNumber: 113,
     ),
     BoothWidget(
@@ -240,7 +240,7 @@ class AllBoothsMap {
       superiorLeftPoint: (29, 4),
       sizes: (2, 2),
       entryBoothPoint: (30, 3),
-      color: Colors.black,
+      color: GetColorCVD(),
       boothNumber: 138,
     ),
     BoothWidget(
@@ -248,7 +248,7 @@ class AllBoothsMap {
       superiorLeftPoint: (29, 6),
       sizes: (2, 2),
       entryBoothPoint: (30, 8),
-      color: Colors.red,
+      color: GetColorADMD(),
       boothNumber: 111,
     ),
     BoothWidget(
@@ -256,7 +256,7 @@ class AllBoothsMap {
       superiorLeftPoint: (31, 4),
       sizes: (4, 4),
       entryBoothPoint: (35, 7),
-      color: Colors.blueAccent,
+      color: GetColorMCN(),
       boothNumber: 109,
     ),
     BoothWidget(
@@ -264,14 +264,14 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 4),
       sizes: (2, 2),
       entryBoothPoint: (38, 3),
-      color: Colors.red,
+      color: GetColorPMN(),
       boothNumber: 136,
     ),
     BoothWidget(
       //Estande 36
       superiorLeftPoint: (38, 6),
       sizes: (2, 2),
-      color: Colors.orange,
+      color: GetColorPMN(),
       boothNumber: 107,
     ),
     BoothWidget(
@@ -279,14 +279,14 @@ class AllBoothsMap {
       superiorLeftPoint: (40, 4),
       sizes: (3, 2),
       entryBoothPoint: (40, 3),
-      color: Colors.pink,
+      color: GetColorCMD(),
       boothNumber: 134,
     ),
     BoothWidget(
       //Estande 38
       superiorLeftPoint: (40, 6),
       sizes: (3, 2),
-      color: Colors.blue,
+      color: GetColorMCD(),
       boothNumber: 105,
     ),
     BoothWidget(
@@ -294,14 +294,14 @@ class AllBoothsMap {
       superiorLeftPoint: (43, 4),
       sizes: (3, 2),
       entryBoothPoint: (43, 3),
-      color: Colors.orange,
+      color: GetColorPMN(),
       boothNumber: 132,
     ),
     BoothWidget(
       //Estande 40
       superiorLeftPoint: (43, 6),
       sizes: (3, 2),
-      color: Colors.brown,
+      color: GetColorPMN(),
       boothNumber: 103,
     ),
     BoothWidget(
@@ -309,7 +309,7 @@ class AllBoothsMap {
       superiorLeftPoint: (46, 4),
       sizes: (2, 2),
       entryBoothPoint: (48, 5),
-      color: Colors.red,
+      color: GetColorCMD(),
       boothNumber: 130,
     ),
     BoothWidget(
@@ -317,7 +317,7 @@ class AllBoothsMap {
       superiorLeftPoint: (46, 6),
       sizes: (2, 2),
       entryBoothPoint: (48, 7),
-      color: Colors.green,
+      color: GetColorCVN(),
       boothNumber: 101,
     ),
     BoothWidget(
@@ -325,7 +325,7 @@ class AllBoothsMap {
       superiorLeftPoint: (3, 10),
       sizes: (3, 4),
       entryBoothPoint: (5, 9),
-      color: Colors.red,
+      color: GetColorCAD(),
       boothNumber: 91,
     ),
     BoothWidget(
@@ -333,14 +333,14 @@ class AllBoothsMap {
       superiorLeftPoint: (6, 10),
       sizes: (2, 2),
       entryBoothPoint: (6, 9),
-      color: Colors.orange,
+      color: GetColorDSGN(),
       boothNumber: 116,
     ),
     BoothWidget(
       //Estande 45
       superiorLeftPoint: (6, 12),
       sizes: (2, 2),
-      color: Colors.brown,
+      color: GetColorCAD(),
       boothNumber: 89,
     ),
     BoothWidget(
@@ -348,14 +348,14 @@ class AllBoothsMap {
       superiorLeftPoint: (8, 10),
       sizes: (3, 2),
       entryBoothPoint: (8, 9),
-      color: Colors.blue,
+      color: GetColorQMN(),
       boothNumber: 114,
     ),
     BoothWidget(
       //Estande 47
       superiorLeftPoint: (8, 12),
       sizes: (3, 2),
-      color: Colors.green,
+      color: GetColorQMD(),
       boothNumber: 87,
     ),
     BoothWidget(
@@ -363,14 +363,14 @@ class AllBoothsMap {
       superiorLeftPoint: (11, 10),
       sizes: (2, 2),
       entryBoothPoint: (11, 9),
-      color: Colors.red,
+      color: GetColorPMN(),
       boothNumber: 112,
     ),
     BoothWidget(
       //Estande 49
       superiorLeftPoint: (11, 12),
       sizes: (2, 2),
-      color: Colors.orange,
+      color: GetColorQMN(),
       boothNumber: 85,
     ),
     BoothWidget(
@@ -378,7 +378,7 @@ class AllBoothsMap {
       superiorLeftPoint: (13, 10),
       sizes: (3, 4),
       entryBoothPoint: (15, 9),
-      color: Colors.green,
+      color: GetColorADMD(),
       boothNumber: 83,
     ),
     BoothWidget(
@@ -386,7 +386,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 10),
       sizes: (3, 2),
       entryBoothPoint: (22, 9),
-      color: Colors.orange,
+      color: GetColorQMN(),
       boothNumber: 110,
     ),
     BoothWidget(
@@ -394,7 +394,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 12),
       sizes: (3, 2),
       entryBoothPoint: (19, 12),
-      color: Colors.brown,
+      color: GetColorDSGN(),
       boothNumber: 81,
     ),
     BoothWidget(
@@ -402,14 +402,14 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 10),
       sizes: (3, 2),
       entryBoothPoint: (23, 9),
-      color: Colors.green,
+      color: GetColorCAN(),
       boothNumber: 108,
     ),
     BoothWidget(
       //Estande 54
       superiorLeftPoint: (23, 12),
       sizes: (3, 2),
-      color: Colors.red,
+      color: GetColorALD(),
       boothNumber: 79,
     ),
     BoothWidget(
@@ -417,14 +417,14 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 10),
       sizes: (2, 2),
       entryBoothPoint: (26, 9),
-      color: Colors.purple,
+      color: GetColorCVN(),
       boothNumber: 106,
     ),
     BoothWidget(
       //Estande 56
       superiorLeftPoint: (26, 12),
       sizes: (2, 2),
-      color: Colors.black,
+      color: GetColorDSGN(),
       boothNumber: 77,
     ),
     BoothWidget(
@@ -432,14 +432,14 @@ class AllBoothsMap {
       superiorLeftPoint: (28, 10),
       sizes: (2, 2),
       entryBoothPoint: (28, 9),
-      color: Colors.blue,
+      color: GetColorDSGN(),
       boothNumber: 104,
     ),
     BoothWidget(
       //Estande 58
       superiorLeftPoint: (28, 12),
       sizes: (2, 2),
-      color: Colors.orange,
+      color: GetColorQMN(),
       boothNumber: 75,
     ),
     BoothWidget(
@@ -447,14 +447,14 @@ class AllBoothsMap {
       superiorLeftPoint: (30, 10),
       sizes: (2, 2),
       entryBoothPoint: (30, 9),
-      color: Colors.pink,
+      color: GetColorQMN(),
       boothNumber: 102,
     ),
     BoothWidget(
       //Estande 60
       superiorLeftPoint: (30, 12),
       sizes: (2, 2),
-      color: Colors.green,
+      color: GetColorCVN(),
       boothNumber: 73,
     ),
     BoothWidget(
@@ -462,7 +462,7 @@ class AllBoothsMap {
       superiorLeftPoint: (32, 10),
       sizes: (3, 2),
       entryBoothPoint: (35, 10),
-      color: Colors.brown,
+      color: GetColorDSGN(),
       boothNumber: 100,
     ),
     BoothWidget(
@@ -470,7 +470,7 @@ class AllBoothsMap {
       superiorLeftPoint: (32, 12),
       sizes: (3, 2),
       entryBoothPoint: (35, 12),
-      color: Colors.blue,
+      color: GetColorQMN(),
       boothNumber: 71,
     ),
     //Debs
@@ -479,7 +479,7 @@ class AllBoothsMap {
       superiorLeftPoint: (3, 16),
       sizes: (3, 4),
       entryBoothPoint: (2, 17),
-      color: Colors.red,
+      color: GetColorCAN(),
       boothNumber: 63,
     ),
     BoothWidget(
@@ -487,7 +487,7 @@ class AllBoothsMap {
       superiorLeftPoint: (6, 16),
       sizes: (3, 2),
       entryBoothPoint: (7, 15),
-      color: Colors.green,
+      color: GetColorALD(),
       boothNumber: 90,
     ),
 
@@ -496,7 +496,7 @@ class AllBoothsMap {
       superiorLeftPoint: (6, 18),
       sizes: (3, 2),
       entryBoothPoint: (7, 20),
-      color: Colors.blue,
+      color: GetColorCMD(),
       boothNumber: 61,
     ),
 
@@ -505,7 +505,7 @@ class AllBoothsMap {
       superiorLeftPoint: (9, 16),
       sizes: (2, 2),
       entryBoothPoint: (10, 15),
-      color: Colors.red,
+      color: GetColorADMD(),
       boothNumber: 88,
     ),
 
@@ -514,7 +514,7 @@ class AllBoothsMap {
       superiorLeftPoint: (9, 18),
       sizes: (2, 2),
       entryBoothPoint: (10, 20),
-      color: Colors.green,
+      color: GetColorCVD(),
       boothNumber: 59,
     ),
 
@@ -523,7 +523,7 @@ class AllBoothsMap {
       superiorLeftPoint: (11, 16),
       sizes: (3, 2),
       entryBoothPoint: (12, 15),
-      color: Colors.blue,
+      color: GetColorQMN(),
       boothNumber: 86,
     ),
 
@@ -532,7 +532,7 @@ class AllBoothsMap {
       superiorLeftPoint: (11, 18),
       sizes: (3, 2),
       entryBoothPoint: (12, 20),
-      color: Colors.red,
+      color: GetColorDSGN(),
       boothNumber: 57,
     ),
 
@@ -541,7 +541,7 @@ class AllBoothsMap {
       superiorLeftPoint: (14, 16),
       sizes: (3, 2),
       entryBoothPoint: (15, 15),
-      color: Colors.green,
+      color: GetColorDSGN(),
       boothNumber: 84,
     ),
 
@@ -550,7 +550,7 @@ class AllBoothsMap {
       superiorLeftPoint: (14, 18),
       sizes: (3, 2),
       entryBoothPoint: (15, 20),
-      color: Colors.blue,
+      color: GetColorDSGD(),
       boothNumber: 55,
     ),
 
@@ -559,7 +559,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 16),
       sizes: (3, 2),
       entryBoothPoint: (21, 15),
-      color: Colors.blue,
+      color: GetColorCVN(),
       boothNumber: 82,
     ),
 
@@ -568,7 +568,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 18),
       sizes: (3, 2),
       entryBoothPoint: (21, 20),
-      color: Colors.red,
+      color: GetColorELD(),
       boothNumber: 53,
     ),
 
@@ -577,7 +577,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 16),
       sizes: (2, 2),
       entryBoothPoint: (24, 15),
-      color: Colors.green,
+      color: GetColorPMN(),
       boothNumber: 80,
     ),
 
@@ -586,7 +586,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 18),
       sizes: (4, 2),
       entryBoothPoint: (24, 20),
-      color: Colors.blue,
+      color: GetColorCAN(),
       boothNumber: 51,
     ),
 
@@ -595,7 +595,7 @@ class AllBoothsMap {
       superiorLeftPoint: (25, 16),
       sizes: (2, 2),
       entryBoothPoint: (26, 15),
-      color: Colors.red,
+      color: GetColorCMD(),
       boothNumber: 78,
     ),
 
@@ -604,7 +604,7 @@ class AllBoothsMap {
       superiorLeftPoint: (27, 16),
       sizes: (3, 2),
       entryBoothPoint: (28, 15),
-      color: Colors.green,
+      color: GetColorCVN(),
       boothNumber: 76,
     ),
 
@@ -613,7 +613,7 @@ class AllBoothsMap {
       superiorLeftPoint: (27, 18),
       sizes: (2, 2),
       entryBoothPoint: (28, 20),
-      color: Colors.blue,
+      color: GetColorEND(),
       boothNumber: 49,
     ),
 
@@ -622,7 +622,7 @@ class AllBoothsMap {
       superiorLeftPoint: (30, 16),
       sizes: (2, 2),
       entryBoothPoint: (31, 15),
-      color: Colors.red,
+      color: GetColorCVN(),
       boothNumber: 74,
     ),
 
@@ -631,7 +631,7 @@ class AllBoothsMap {
       superiorLeftPoint: (29, 18),
       sizes: (3, 2),
       entryBoothPoint: (30, 20),
-      color: Colors.green,
+      color: GetColorCVN(),
       boothNumber: 47,
     ),
 
@@ -640,7 +640,7 @@ class AllBoothsMap {
       superiorLeftPoint: (32, 16),
       sizes: (3, 2),
       entryBoothPoint: (33, 15),
-      color: Colors.blue,
+      color: GetColorCMD(),
       boothNumber: 72,
     ),
 
@@ -649,7 +649,7 @@ class AllBoothsMap {
       superiorLeftPoint: (32, 18),
       sizes: (3, 2),
       entryBoothPoint: (35, 18),
-      color: Colors.red,
+      color: GetColorDSGN(),
       boothNumber: 45,
     ),
 
@@ -658,7 +658,7 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 16),
       sizes: (2, 2),
       entryBoothPoint: (38, 15),
-      color: Colors.red,
+      color: GetColorCMD(),
       boothNumber: 70,
     ),
 
@@ -667,7 +667,7 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 18),
       sizes: (2, 2),
       entryBoothPoint: (37, 18),
-      color: Colors.blue,
+      color: GetColorPMD(),
       boothNumber: 43,
     ),
 
@@ -676,7 +676,7 @@ class AllBoothsMap {
       superiorLeftPoint: (40, 16),
       sizes: (12, 4),
       entryBoothPoint: (52, 16),
-      color: Colors.green,
+      color: GetColorMCN(),
       boothNumber: 41,
     ),
 
@@ -686,7 +686,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       boothNumber: 64,
       entryBoothPoint: (5, 21),
-      color: Colors.red,
+      color: GetColorPMN(),
     ),
 
     BoothWidget(
@@ -694,7 +694,7 @@ class AllBoothsMap {
       superiorLeftPoint: (4, 23),
       sizes: (3, 2),
       entryBoothPoint: (5, 25),
-      color: Colors.blue,
+      color: GetColorADMD(),
       boothNumber: 27,
     ),
 
@@ -704,7 +704,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       boothNumber: 62,
       entryBoothPoint: (8, 21),
-      color: Colors.green,
+      color: GetColorCVN(),
     ),
 
     BoothWidget(
@@ -712,7 +712,7 @@ class AllBoothsMap {
       superiorLeftPoint: (7, 23),
       sizes: (3, 2),
       entryBoothPoint: (8, 25),
-      color: Colors.red,
+      color: GetColorCVN(),
       boothNumber: 25,
     ),
 
@@ -722,7 +722,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       boothNumber: 60,
       entryBoothPoint: (11, 21),
-      color: Colors.blue,
+      color: GetColorPMN(),
     ),
 
     BoothWidget(
@@ -730,43 +730,41 @@ class AllBoothsMap {
       superiorLeftPoint: (10, 23),
       sizes: (3, 2),
       entryBoothPoint: (11, 25),
-      color: Colors.green,
+      color: GetColorQMN(),
       boothNumber: 23,
     ),
 
     BoothWidget(
-      // Estande 92
-      superiorLeftPoint: (13, 22),
-      sizes: (3, 1),
-      boothNumber: 58,
-      entryBoothPoint: (14, 21),
-      color: Colors.red,
-    ),
+        // Estande 92
+        superiorLeftPoint: (13, 22),
+        sizes: (3, 1),
+        boothNumber: 58,
+        entryBoothPoint: (14, 21),
+        color: GetColorDSGN()),
 
     BoothWidget(
       // Estande 93
       superiorLeftPoint: (13, 23),
       sizes: (3, 2),
       entryBoothPoint: (16, 23),
-      color: Colors.blue,
+      color: GetColorCVN(),
       boothNumber: 21,
     ),
 
     BoothWidget(
-      // Estande 94
-      superiorLeftPoint: (20, 22),
-      sizes: (3, 1),
-      entryBoothPoint: (20, 21),
-      boothNumber: 56,
-      color: Colors.red,
-    ),
+        // Estande 94
+        superiorLeftPoint: (20, 22),
+        sizes: (3, 1),
+        entryBoothPoint: (20, 21),
+        boothNumber: 56,
+        color: GetColorQMN()),
 
     BoothWidget(
       // Estande 95
       superiorLeftPoint: (20, 23),
       sizes: (3, 2),
       entryBoothPoint: (19, 23),
-      color: Colors.blue,
+      color: GetColorPMN(),
       boothNumber: 19,
     ),
 
@@ -776,7 +774,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       entryBoothPoint: (24, 21),
       boothNumber: 54,
-      color: Colors.green,
+      color: GetColorPMD(),
     ),
 
     BoothWidget(
@@ -784,7 +782,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 23),
       sizes: (3, 2),
       entryBoothPoint: (24, 25),
-      color: Colors.red,
+      color: GetColorPMD(),
       boothNumber: 17,
     ),
 
@@ -794,7 +792,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       entryBoothPoint: (27, 21),
       boothNumber: 52,
-      color: Colors.blue,
+      color: GetColorCVN(),
     ),
 
     BoothWidget(
@@ -802,7 +800,7 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 23),
       sizes: (3, 2),
       entryBoothPoint: (27, 25),
-      color: Colors.green,
+      color: GetColorMCN(),
       boothNumber: 15,
     ),
 
@@ -812,7 +810,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       entryBoothPoint: (30, 21),
       boothNumber: 50,
-      color: Colors.red,
+      color: GetColorPMN(),
     ),
 
     BoothWidget(
@@ -820,25 +818,24 @@ class AllBoothsMap {
       superiorLeftPoint: (29, 23),
       sizes: (3, 2),
       entryBoothPoint: (30, 25),
-      color: Colors.blue,
+      color: GetColorPMN(),
       boothNumber: 13,
     ),
 
     BoothWidget(
-      // Estande 102
-      superiorLeftPoint: (32, 22),
-      sizes: (3, 1),
-      entryBoothPoint: (33, 21),
-      boothNumber: 48,
-      color: Colors.red,
-    ),
+        // Estande 102
+        superiorLeftPoint: (32, 22),
+        sizes: (3, 1),
+        entryBoothPoint: (33, 21),
+        boothNumber: 48,
+        color: GetColorMCN()),
 
     BoothWidget(
       // Estande 103
       superiorLeftPoint: (32, 23),
       sizes: (3, 2),
       entryBoothPoint: (35, 23),
-      color: Colors.blue,
+      color: GetColorADMD(),
       boothNumber: 11,
     ), // sexto bloco
 
@@ -847,7 +844,7 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 22),
       sizes: (3, 1),
       entryBoothPoint: (39, 21),
-      color: Colors.red,
+      color: GetColorCVN(),
       boothNumber: 46,
     ),
 
@@ -856,7 +853,7 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 23),
       sizes: (3, 2),
       entryBoothPoint: (37, 23),
-      color: Colors.blue,
+      color: GetColorQMN(),
       boothNumber: 9,
     ),
 
@@ -865,7 +862,7 @@ class AllBoothsMap {
       superiorLeftPoint: (41, 22),
       sizes: (3, 1),
       entryBoothPoint: (42, 21),
-      color: Colors.green,
+      color: GetColorMCN(),
       boothNumber: 44,
     ),
 
@@ -874,7 +871,7 @@ class AllBoothsMap {
       superiorLeftPoint: (41, 23),
       sizes: (3, 2),
       entryBoothPoint: (42, 25),
-      color: Colors.red,
+      color: GetColorCMD(),
       boothNumber: 7,
     ),
 
@@ -883,7 +880,7 @@ class AllBoothsMap {
       superiorLeftPoint: (44, 22),
       sizes: (3, 1),
       entryBoothPoint: (43, 21),
-      color: Colors.blue,
+      color: GetColorADMD(),
       boothNumber: 42,
     ),
 
@@ -892,7 +889,7 @@ class AllBoothsMap {
       superiorLeftPoint: (44, 23),
       sizes: (3, 2),
       entryBoothPoint: (46, 25),
-      color: Colors.green,
+      color: GetColorCVD(),
       boothNumber: 5,
     ),
 
@@ -901,7 +898,7 @@ class AllBoothsMap {
       superiorLeftPoint: (47, 22),
       sizes: (3, 1),
       entryBoothPoint: (48, 21),
-      color: Colors.red,
+      color: GetColorCVD(),
       boothNumber: 40,
     ),
 
@@ -910,7 +907,7 @@ class AllBoothsMap {
       superiorLeftPoint: (47, 23),
       sizes: (3, 2),
       entryBoothPoint: (48, 25),
-      color: Colors.blue,
+      color: GetColorDSGD(),
       boothNumber: 3,
     ),
 
@@ -919,7 +916,7 @@ class AllBoothsMap {
       superiorLeftPoint: (50, 22),
       sizes: (2, 3),
       entryBoothPoint: (51, 21),
-      color: Colors.blue,
+      color: GetColorPMN(),
       boothNumber: 1,
     ), // sétimo bloco
 
@@ -928,7 +925,7 @@ class AllBoothsMap {
       superiorLeftPoint: (2, 27),
       sizes: (3, 2),
       entryBoothPoint: (3, 26),
-      color: Colors.blue,
+      color: GetColorPMD(),
       boothNumber: 28,
     ),
 
@@ -937,7 +934,7 @@ class AllBoothsMap {
       superiorLeftPoint: (5, 27),
       sizes: (3, 2),
       entryBoothPoint: (6, 26),
-      color: Colors.red,
+      color: GetColorCMD(),
       boothNumber: 26,
     ),
 
@@ -946,7 +943,7 @@ class AllBoothsMap {
       superiorLeftPoint: (8, 27),
       sizes: (3, 2),
       entryBoothPoint: (9, 26),
-      color: Colors.pink,
+      color: GetColorPMN(),
       boothNumber: 24,
     ),
 
@@ -955,7 +952,7 @@ class AllBoothsMap {
       superiorLeftPoint: (11, 27),
       sizes: (3, 2),
       entryBoothPoint: (12, 26),
-      color: Colors.green,
+      color: GetColorCAD(),
       boothNumber: 22,
     ),
 
@@ -964,7 +961,7 @@ class AllBoothsMap {
       superiorLeftPoint: (14, 27),
       sizes: (3, 2),
       entryBoothPoint: (15, 26),
-      color: Colors.blue,
+      color: GetColorCMD(),
       boothNumber: 20,
     ), // oitavo bloco
 
@@ -973,7 +970,7 @@ class AllBoothsMap {
       superiorLeftPoint: (20, 27),
       sizes: (3, 2),
       entryBoothPoint: (21, 26),
-      color: Colors.blue,
+      color: GetColorADMD(),
       boothNumber: 18,
     ),
 
@@ -982,7 +979,7 @@ class AllBoothsMap {
       superiorLeftPoint: (23, 27),
       sizes: (3, 2),
       entryBoothPoint: (24, 26),
-      color: Colors.red,
+      color: GetColorPMN(),
       boothNumber: 16,
     ),
 
@@ -991,7 +988,7 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 27),
       sizes: (3, 2),
       entryBoothPoint: (27, 26),
-      color: Colors.pink,
+      color: GetColorPMD(),
       boothNumber: 14,
     ),
 
@@ -1000,7 +997,7 @@ class AllBoothsMap {
       superiorLeftPoint: (29, 27),
       sizes: (3, 2),
       entryBoothPoint: (30, 26),
-      color: Colors.green,
+      color: GetColorPMN(),
       boothNumber: 12,
     ),
 
@@ -1009,7 +1006,7 @@ class AllBoothsMap {
       superiorLeftPoint: (32, 27),
       sizes: (3, 2),
       entryBoothPoint: (33, 26),
-      color: Colors.blue,
+      color: GetColorMCN(),
       boothNumber: 10,
     ), // nono bloco
 
@@ -1018,7 +1015,7 @@ class AllBoothsMap {
       superiorLeftPoint: (38, 27),
       sizes: (3, 2),
       entryBoothPoint: (39, 26),
-      color: Colors.blue,
+      color: GetColorCAD(),
       boothNumber: 8,
     ),
 
@@ -1027,7 +1024,7 @@ class AllBoothsMap {
       superiorLeftPoint: (41, 27),
       sizes: (3, 2),
       entryBoothPoint: (42, 26),
-      color: Colors.red,
+      color: GetColorCAN(),
       boothNumber: 6,
     ),
 
@@ -1036,7 +1033,7 @@ class AllBoothsMap {
       superiorLeftPoint: (44, 27),
       sizes: (3, 2),
       entryBoothPoint: (45, 26),
-      color: Colors.pink,
+      color: GetColorCVN(),
       boothNumber: 4,
     ),
 
@@ -1045,7 +1042,7 @@ class AllBoothsMap {
       superiorLeftPoint: (47, 27),
       sizes: (3, 2),
       entryBoothPoint: (48, 26),
-      color: Colors.green,
+      color: GetColorPMN(),
       boothNumber: 2,
     ),
   ];
@@ -1062,4 +1059,26 @@ class AllBoothsMap {
     }
     return null;
   }
+
+  static Color GetColorADMD() => Color.fromRGBO(255, 0, 0, 1);
+  static Color GetColorALD() => Color.fromRGBO(0, 184, 92, 1);
+  static Color GetColorCAD() => Color.fromRGBO(255, 48, 255, 1);
+  static Color GetColorCAN() => Color.fromRGBO(191, 0, 255, 1);
+  static Color GetColorCVD() => Color.fromRGBO(0, 0, 0, 1);
+  static Color GetColorCVN() => Color.fromRGBO(0, 0, 0, 1);
+
+  static Color GetColorDSGD() => Color.fromRGBO(175, 94, 94, 1);
+  static Color GetColorDSGN() => Color.fromRGBO(175, 94, 94, 1);
+  static Color GetColorELD() => Color.fromRGBO(149, 74, 0, 1);
+  static Color GetColorELN() => Color.fromRGBO(149, 74, 0, 1);
+  static Color GetColorEND() => Color.fromRGBO(149, 74, 0, 1);
+  static Color GetColorCMD() => Color.fromRGBO(255, 127, 223, 1);
+  static Color GetColorIMTD() => Color.fromRGBO(40, 0, 145, 1);
+
+  static Color GetColorMCD() => Color.fromRGBO(0, 110, 221, 1);
+  static Color GetColorMCN() => Color.fromRGBO(0, 110, 221, 1);
+  static Color GetColorPMD() => Color.fromRGBO(134, 115, 30, 1);
+  static Color GetColorPMN() => Color.fromRGBO(134, 115, 30, 1);
+  static Color GetColorQMD() => Color.fromRGBO(6, 222, 6, 1);
+  static Color GetColorQMN() => Color.fromRGBO(6, 222, 6, 1);
 }
