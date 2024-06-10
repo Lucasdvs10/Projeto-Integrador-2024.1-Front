@@ -118,6 +118,7 @@ class AllBoothsMap {
     BoothWidget(
       //Estande 17
       superiorLeftPoint: (3, 4),
+      entryBoothPoint: (5, 8),
       sizes: (3, 4),
       color: Colors.brown,
       boothNumber: 127,
@@ -126,7 +127,7 @@ class AllBoothsMap {
       //Estande 18
       superiorLeftPoint: (6, 4),
       sizes: (3, 2),
-      entryBoothPoint: (6, 3),
+      entryBoothPoint: (8, 3),
       color: Colors.green,
       boothNumber: 152,
     ),
@@ -134,6 +135,7 @@ class AllBoothsMap {
       //Estande 19
       superiorLeftPoint: (6, 6),
       sizes: (3, 2),
+      entryBoothPoint: (8, 8),
       color: Colors.pinkAccent,
       boothNumber: 125,
     ),
@@ -141,7 +143,7 @@ class AllBoothsMap {
       //Estande 20
       superiorLeftPoint: (9, 4),
       sizes: (3, 2),
-      entryBoothPoint: (9, 3),
+      entryBoothPoint: (11, 3),
       color: Colors.blue,
       boothNumber: 150,
     ),
@@ -149,6 +151,7 @@ class AllBoothsMap {
       //Estande 21
       superiorLeftPoint: (9, 6),
       sizes: (3, 2),
+      entryBoothPoint: (11, 8),
       color: Colors.orange,
       boothNumber: 123,
     ),
@@ -156,7 +159,7 @@ class AllBoothsMap {
       //Estande 22
       superiorLeftPoint: (12, 4),
       sizes: (3, 2),
-      entryBoothPoint: (12, 3),
+      entryBoothPoint: (14, 3),
       color: Colors.purple,
       boothNumber: 148,
     ),
@@ -164,6 +167,7 @@ class AllBoothsMap {
       //Estande 23
       superiorLeftPoint: (12, 6),
       sizes: (3, 2),
+      entryBoothPoint: (14, 8),
       color: Colors.red,
       boothNumber: 121,
     ),
@@ -171,7 +175,7 @@ class AllBoothsMap {
       //Estande 24
       superiorLeftPoint: (15, 4),
       sizes: (2, 2),
-      entryBoothPoint: (15, 3),
+      entryBoothPoint: (17, 4),
       color: Colors.green,
       boothNumber: 146,
     ),
@@ -179,6 +183,7 @@ class AllBoothsMap {
       //Estande 25
       superiorLeftPoint: (15, 6),
       sizes: (2, 2),
+      entryBoothPoint: (17, 7),
       color: Colors.blue,
       boothNumber: 119,
     ),
@@ -186,7 +191,7 @@ class AllBoothsMap {
       //Estande 26
       superiorLeftPoint: (20, 4),
       sizes: (3, 2),
-      entryBoothPoint: (20, 3),
+      entryBoothPoint: (22, 3),
       color: Colors.brown,
       boothNumber: 144,
     ),
@@ -194,6 +199,7 @@ class AllBoothsMap {
       //Estande 27
       superiorLeftPoint: (20, 6),
       sizes: (3, 2),
+      entryBoothPoint: (22, 8),
       color: Colors.red,
       boothNumber: 117,
     ),
@@ -201,7 +207,7 @@ class AllBoothsMap {
       //Estande 28
       superiorLeftPoint: (23, 4),
       sizes: (3, 2),
-      entryBoothPoint: (23, 3),
+      entryBoothPoint: (25, 3),
       color: Colors.green,
       boothNumber: 142,
     ),
@@ -209,6 +215,7 @@ class AllBoothsMap {
       //Estande 29
       superiorLeftPoint: (23, 6),
       sizes: (3, 2),
+      entryBoothPoint: (25, 8),
       color: Colors.purple,
       boothNumber: 115,
     ),
@@ -216,7 +223,7 @@ class AllBoothsMap {
       //Estande 30
       superiorLeftPoint: (26, 4),
       sizes: (3, 2),
-      entryBoothPoint: (26, 3),
+      entryBoothPoint: (28, 3),
       color: Colors.blue,
       boothNumber: 140,
     ),
@@ -224,6 +231,7 @@ class AllBoothsMap {
       //Estande 31
       superiorLeftPoint: (26, 6),
       sizes: (3, 2),
+      entryBoothPoint: (28, 8),
       color: Colors.orange,
       boothNumber: 113,
     ),
@@ -231,7 +239,7 @@ class AllBoothsMap {
       //Estande 32
       superiorLeftPoint: (29, 4),
       sizes: (2, 2),
-      entryBoothPoint: (29, 3),
+      entryBoothPoint: (30, 3),
       color: Colors.black,
       boothNumber: 138,
     ),
@@ -239,6 +247,7 @@ class AllBoothsMap {
       //Estande 33
       superiorLeftPoint: (29, 6),
       sizes: (2, 2),
+      entryBoothPoint: (30, 8),
       color: Colors.red,
       boothNumber: 111,
     ),
@@ -246,6 +255,7 @@ class AllBoothsMap {
       //Estande 34
       superiorLeftPoint: (31, 4),
       sizes: (4, 4),
+      entryBoothPoint: (35, 7),
       color: Colors.blueAccent,
       boothNumber: 109,
     ),
@@ -298,7 +308,7 @@ class AllBoothsMap {
       //Estande 41
       superiorLeftPoint: (46, 4),
       sizes: (2, 2),
-      entryBoothPoint: (46, 3),
+      entryBoothPoint: (48, 5),
       color: Colors.red,
       boothNumber: 130,
     ),
@@ -306,6 +316,7 @@ class AllBoothsMap {
       //Estande 42
       superiorLeftPoint: (46, 6),
       sizes: (2, 2),
+      entryBoothPoint: (48, 7),
       color: Colors.green,
       boothNumber: 101,
     ),
@@ -313,6 +324,7 @@ class AllBoothsMap {
       //Estande 43
       superiorLeftPoint: (3, 10),
       sizes: (3, 4),
+      entryBoothPoint: (5, 9),
       color: Colors.red,
       boothNumber: 91,
     ),
@@ -365,6 +377,7 @@ class AllBoothsMap {
       //Estande 50
       superiorLeftPoint: (13, 10),
       sizes: (3, 4),
+      entryBoothPoint: (15, 9),
       color: Colors.green,
       boothNumber: 83,
     ),
@@ -372,7 +385,7 @@ class AllBoothsMap {
       //Estande 51
       superiorLeftPoint: (20, 10),
       sizes: (3, 2),
-      entryBoothPoint: (20, 9),
+      entryBoothPoint: (22, 9),
       color: Colors.orange,
       boothNumber: 110,
     ),
@@ -380,6 +393,7 @@ class AllBoothsMap {
       //Estande 52
       superiorLeftPoint: (20, 12),
       sizes: (3, 2),
+      entryBoothPoint: (19, 12),
       color: Colors.brown,
       boothNumber: 81,
     ),
@@ -447,7 +461,7 @@ class AllBoothsMap {
       //Estande 61
       superiorLeftPoint: (32, 10),
       sizes: (3, 2),
-      entryBoothPoint: (32, 9),
+      entryBoothPoint: (35, 10),
       color: Colors.brown,
       boothNumber: 100,
     ),
@@ -455,6 +469,7 @@ class AllBoothsMap {
       //Estande 62
       superiorLeftPoint: (32, 12),
       sizes: (3, 2),
+      entryBoothPoint: (35, 12),
       color: Colors.blue,
       boothNumber: 71,
     ),
@@ -633,7 +648,7 @@ class AllBoothsMap {
       // Estande 82
       superiorLeftPoint: (32, 18),
       sizes: (3, 2),
-      entryBoothPoint: (33, 20),
+      entryBoothPoint: (35, 18),
       color: Colors.red,
       boothNumber: 45,
     ),
@@ -642,7 +657,7 @@ class AllBoothsMap {
       // Estande 83
       superiorLeftPoint: (38, 16),
       sizes: (2, 2),
-      entryBoothPoint: (37, 16),
+      entryBoothPoint: (38, 15),
       color: Colors.red,
       boothNumber: 70,
     ),
@@ -651,7 +666,7 @@ class AllBoothsMap {
       // Estande 84
       superiorLeftPoint: (38, 18),
       sizes: (2, 2),
-      entryBoothPoint: (38, 20),
+      entryBoothPoint: (37, 18),
       color: Colors.blue,
       boothNumber: 43,
     ),
@@ -660,7 +675,7 @@ class AllBoothsMap {
       // Estande 85
       superiorLeftPoint: (40, 16),
       sizes: (12, 4),
-      entryBoothPoint: (44, 20),
+      entryBoothPoint: (52, 16),
       color: Colors.green,
       boothNumber: 41,
     ),
@@ -732,7 +747,7 @@ class AllBoothsMap {
       // Estande 93
       superiorLeftPoint: (13, 23),
       sizes: (3, 2),
-      entryBoothPoint: (14, 25),
+      entryBoothPoint: (16, 23),
       color: Colors.blue,
       boothNumber: 21,
     ),
@@ -741,7 +756,7 @@ class AllBoothsMap {
       // Estande 94
       superiorLeftPoint: (20, 22),
       sizes: (3, 1),
-      entryBoothPoint: (21, 21),
+      entryBoothPoint: (20, 21),
       boothNumber: 56,
       color: Colors.red,
     ),
@@ -750,7 +765,7 @@ class AllBoothsMap {
       // Estande 95
       superiorLeftPoint: (20, 23),
       sizes: (3, 2),
-      entryBoothPoint: (21, 25),
+      entryBoothPoint: (19, 23),
       color: Colors.blue,
       boothNumber: 19,
     ),
@@ -822,7 +837,7 @@ class AllBoothsMap {
       // Estande 103
       superiorLeftPoint: (32, 23),
       sizes: (3, 2),
-      entryBoothPoint: (33, 25),
+      entryBoothPoint: (35, 23),
       color: Colors.blue,
       boothNumber: 11,
     ), // sexto bloco
@@ -840,7 +855,7 @@ class AllBoothsMap {
       // Estande 105
       superiorLeftPoint: (38, 23),
       sizes: (3, 2),
-      entryBoothPoint: (39, 25),
+      entryBoothPoint: (37, 23),
       color: Colors.blue,
       boothNumber: 9,
     ),
@@ -876,7 +891,7 @@ class AllBoothsMap {
       // Estande 109
       superiorLeftPoint: (44, 23),
       sizes: (3, 2),
-      entryBoothPoint: (43, 25),
+      entryBoothPoint: (46, 25),
       color: Colors.green,
       boothNumber: 5,
     ),
