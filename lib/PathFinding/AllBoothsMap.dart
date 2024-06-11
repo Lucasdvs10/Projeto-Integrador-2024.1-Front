@@ -224,7 +224,7 @@ class AllBoothsMap {
       superiorLeftPoint: (26, 4),
       sizes: (3, 2),
       entryBoothPoint: (28, 3),
-      color: GetColorPMN(),
+      color: Color.fromRGBO(119, 102, 26, 1),
       boothNumber: 140,
     ),
     BoothWidget(
@@ -301,7 +301,7 @@ class AllBoothsMap {
       //Estande 40
       superiorLeftPoint: (43, 6),
       sizes: (3, 2),
-      color: GetColorPMN(),
+      color: Color.fromRGBO(119, 102, 26, 1),
       boothNumber: 103,
     ),
     BoothWidget(
@@ -622,7 +622,7 @@ class AllBoothsMap {
       superiorLeftPoint: (30, 16),
       sizes: (2, 2),
       entryBoothPoint: (31, 15),
-      color: GetColorCVN(),
+      color: Color.fromRGBO(105, 105, 105, 1),
       boothNumber: 74,
     ),
 
@@ -774,7 +774,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       entryBoothPoint: (24, 21),
       boothNumber: 54,
-      color: GetColorPMD(),
+      color: Color.fromRGBO(255, 219, 56, 1),
     ),
 
     BoothWidget(
@@ -810,7 +810,7 @@ class AllBoothsMap {
       sizes: (3, 1),
       entryBoothPoint: (30, 21),
       boothNumber: 50,
-      color: GetColorPMN(),
+      color: Color.fromRGBO(255, 218, 54, 1),
     ),
 
     BoothWidget(
@@ -1064,13 +1064,13 @@ class AllBoothsMap {
   static Color GetColorALD() => Color.fromRGBO(0, 184, 92, 1);
   static Color GetColorCAD() => Color.fromRGBO(255, 48, 255, 1);
   static Color GetColorCAN() => Color.fromRGBO(191, 0, 255, 1);
-  static Color GetColorCVD() => Color.fromRGBO(0, 0, 0, 1);
-  static Color GetColorCVN() => Color.fromRGBO(0, 0, 0, 1);
+  static Color GetColorCVD() => Color.fromRGBO(99, 98, 98, 1);
+  static Color GetColorCVN() => Color.fromRGBO(141, 141, 141, 1);
 
-  static Color GetColorDSGD() => Color.fromRGBO(175, 94, 94, 1);
-  static Color GetColorDSGN() => Color.fromRGBO(175, 94, 94, 1);
-  static Color GetColorELD() => Color.fromRGBO(149, 74, 0, 1);
-  static Color GetColorELN() => Color.fromRGBO(149, 74, 0, 1);
+  static Color GetColorDSGD() => Color.fromRGBO(255, 75, 75, 1);
+  static Color GetColorDSGN() => Color.fromRGBO(131, 38, 38, 1);
+  static Color GetColorELD() => Color.fromRGBO(119, 60, 1, 1);
+  static Color GetColorELN() => Color.fromRGBO(119, 60, 1, 1);
   static Color GetColorEND() => Color.fromRGBO(149, 74, 0, 1);
   static Color GetColorCMD() => Color.fromRGBO(255, 127, 223, 1);
   static Color GetColorIMTD() => Color.fromRGBO(40, 0, 145, 1);
@@ -1078,7 +1078,7 @@ class AllBoothsMap {
   static Color GetColorMCD() => Color.fromRGBO(0, 110, 221, 1);
   static Color GetColorMCN() => Color.fromRGBO(0, 110, 221, 1);
   static Color GetColorPMD() => Color.fromRGBO(134, 115, 30, 1);
-  static Color GetColorPMN() => Color.fromRGBO(134, 115, 30, 1);
-  static Color GetColorQMD() => Color.fromRGBO(6, 222, 6, 1);
-  static Color GetColorQMN() => Color.fromRGBO(6, 222, 6, 1);
+  static Color GetColorPMN() => Color.fromRGBO(66, 57, 15, 1);
+  static Color GetColorQMD() => Color.fromRGBO(3, 116, 3, 1);
+  static Color GetColorQMN() => Color.fromRGBO(39, 212, 39, 1);
 }
