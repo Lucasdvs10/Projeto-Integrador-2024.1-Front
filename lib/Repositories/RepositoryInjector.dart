@@ -3,6 +3,7 @@ import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
 import 'package:projeto_integrador/Repositories/ProjectRepoMock.dart';
+import 'package:projeto_integrador/Repositories/StudentRepoBack.dart';
 import 'package:projeto_integrador/Repositories/StudentRepoMock.dart';
 
 class RepositoryInjector {
@@ -24,7 +25,7 @@ class RepositoryInjector {
     } else {
       // return StudentRepo(); //Retorna o repositorio real
       //Todo: Fazer o repositório real
-      return StudentRepoMock();
+      return StudentRepoBack();
     }
   }
 
