@@ -10,7 +10,7 @@ import 'SearchOptionsPage.dart';
 import 'ProjectSearchPage.dart';
 
 class AdvisorSearchPage extends StatefulWidget {
-  const AdvisorSearchPage({super.key});
+  const AdvisorSearchPage({Key? key}) : super(key: key);
 
   @override
   AdvisorSearchPageState createState() => AdvisorSearchPageState();
@@ -28,10 +28,10 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
   @override
   void initState() {
     super.initState();
-    Initialize();
+    initialize();
   }
 
-  void Initialize() async {
+  void initialize() async {
     _advisorRepo = RepositoryInjector.GetAdvisorRepo();
     _data = await _advisorRepo.GetAllAdvisors();
     _filteredData = _data;
@@ -43,7 +43,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
       if (query.isNotEmpty) {
         _filteredData = _data
             .where((element) =>
-                element.name.toLowerCase().contains(query.toLowerCase()))
+            element.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
       } else {
         _filteredData = _data;
@@ -76,7 +76,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     Navigator.of(context, rootNavigator: true).pop();
 
     BoothWidget booth =
-        AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
+    AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
 
     Navigator.pop(context);
     Navigator.pop(context, ((56, 8), booth.entryBoothPoint));
@@ -92,155 +92,111 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0A2E93),
-        title: const Row(
-          children: [
-            Spacer(),
-            Padding(
-              padding: EdgeInsets.only(right: 100.0),
-              child: Text(
-                'EUREKA',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-            Spacer(),
-          ],
+        centerTitle: true, // Centraliza o título
+        title: Text(
+          'EUREKA',
+          style: TextStyle(
+            fontFamily: 'Dongle',
+            fontSize: 36,
+            color: Colors.white,
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white, // Define a cor da seta de voltar como branca
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF0A2E93),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
+      body: Stack(
+        children: [
+          // Imagem de fundo dimensionada
+          Positioned.fill(
+            child: Image.asset(
+              "assets/images/eureka4.jpg",
+              fit: BoxFit.cover,
             ),
-            ListTile(
-              title: const Text('Tela Inicial'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchOptionsPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome do aluno'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const StudentSearchPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome de projeto'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ProjectSearchPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Mapa'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapPage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-      body: Container(
-        color: Colors.lightBlueAccent,
-        child: Center(
-          child: Container(
-            width: 600, // Largura do container
-            height: 500, // Altura do container
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 10,
-                  offset: Offset(0, 5),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: _searchController,
-                    onChanged: _filterData,
-                    decoration: const InputDecoration(
-                      hintText: 'Pesquisar...',
-                      border: OutlineInputBorder(),
-                      suffixIcon: Icon(Icons.search),
+          ),
+          // Conteúdo principal
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0), // Adiciona espaçamento ao redor do container
+              child: Container(
+                width: 600, // Largura do container
+                height: 500, // Altura do container
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.9), // Transparência do fundo do container
+                  borderRadius: BorderRadius.circular(20), // Define o border radius
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 10,
+                      offset: Offset(0, 5),
                     ),
-                  ),
+                  ],
                 ),
-                Expanded(
-                  child: _filteredData.isEmpty
-                      ? const Center(
-                          child: Text(
-                            'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        )
-                      : ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 8.0, horizontal: 16.0),
-                          itemCount: _filteredData.length,
-                          itemBuilder: (context, index) {
-                            final AdvisorEntity item = _filteredData[index];
-                            final bool isFound =
-                                _searchController.text.isNotEmpty &&
-                                    item.name.toLowerCase().contains(
-                                        _searchController.text.toLowerCase());
-                            return InkWell(
-                              onTap: () => _onItemTap(item),
-                              child: Container(
-                                padding: const EdgeInsets.all(16.0),
-                                margin:
-                                    const EdgeInsets.symmetric(vertical: 8.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextField(
+                        controller: _searchController,
+                        onChanged: _filterData,
+                        decoration: const InputDecoration(
+                          hintText: 'Pesquisar...',
+                          border: OutlineInputBorder(),
+                          suffixIcon: Icon(Icons.search),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: _filteredData.isEmpty
+                          ? const Center(
+                        child: Text(
+                          'Orientador não encontrado! Verifique se o nome está escrito corretamente.',
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      )
+                          : ListView.builder(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 16.0),
+                        itemCount: _filteredData.length,
+                        itemBuilder: (context, index) {
+                          final AdvisorEntity item = _filteredData[index];
+                          final bool isFound =
+                              _searchController.text.isNotEmpty &&
+                                  item.name.toLowerCase().contains(
+                                      _searchController.text.toLowerCase());
+                          return InkWell(
+                            onTap: () => _onItemTap(item),
+                            child: Container(
+                              padding: const EdgeInsets.all(16.0),
+                              margin:
+                              const EdgeInsets.symmetric(vertical: 8.0),
+                              decoration: BoxDecoration(
                                 color: item == _selectedItem
                                     ? Colors.lightBlueAccent
                                     : index.isOdd
-                                        ? Colors.grey.shade200
-                                        : Colors.white,
-                                child: Text(
-                                  "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: isFound
-                                          ? Colors.green
-                                          : Colors.black),
-                                ),
+                                    ? Colors.grey.shade200
+                                    : Colors.white,
+                                borderRadius: BorderRadius.circular(10), // Border radius para os itens
                               ),
-                            );
-                          },
-                        ),
+                              child: Text(
+                                "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: isFound
+                                        ? Colors.green
+                                        : Colors.black),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
