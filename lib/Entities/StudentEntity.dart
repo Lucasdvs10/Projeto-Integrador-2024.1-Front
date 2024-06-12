@@ -19,7 +19,7 @@ class StudentEntity {
         StudentEntity(name: nomeAluno, boothNumber: numEstande, id: idAluno
 
         ),
-      _ => throw const FormatException('Failed to load album.'),
+      _ => throw const FormatException('Failed to load Student Entity.'),
     };
   }
 }
