@@ -145,8 +145,8 @@ class SearchOptionsPage extends StatelessWidget {
                   launch(url); // Abre o link no navegador
                 },
                 child: Container(
-                  width: 80, // Tamanho do círculo aumentado
-                  height: 80, // Tamanho do círculo aumentado
+                  width: 65, // Tamanho do círculo aumentado
+                  height: 65, // Tamanho do círculo aumentado
                   decoration: BoxDecoration(
                     color: Colors.lightBlueAccent,
                     shape: BoxShape.circle,
