@@ -72,7 +72,7 @@ void main() {
     expect(path.length, 3);
   });
 
-  test('Nome temporario', () {
+  test('Return the shortest path correctly', () {
     GridMap gridMap = GridMap([
       [0, 0, 1, 0, 1],
       [0, 0, 1, 0, 1],
@@ -90,16 +90,8 @@ void main() {
     List<CellEntity> path =
         aStarCalculator.CalculatePath(startCell, targetCell);
 
-    for (var cell in path) {
-      print("${cell.row}, ${cell.column}");
-    }
     expect(path.contains(CellEntity(4, 2, true)), false);
-    // expect(path[0], CellEntity(1, 0, true));
-    // expect(path[1], CellEntity(0, 0, true));
-    // expect(path[2], CellEntity(0, 1, true));
-    // expect(path[3], CellEntity(0, 2, true));
-    // expect(path[4], CellEntity(1, 2, true));
-    // expect(path.length, 5);
+
   });
 
   test('Return the shortest path when there are a few paths avaible', () {

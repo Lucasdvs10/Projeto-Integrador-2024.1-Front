@@ -76,7 +76,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
     Navigator.of(context, rootNavigator: true).pop();
 
     BoothWidget booth =
-    AllBoothsMap.GetBoothByBoothNumber(item.students[0].boothNumber)!;
+    AllBoothsMap.GetBoothByBoothNumber(item.boothNumber)!;
 
     Navigator.pop(context);
     Navigator.pop(context, ((56, 8), booth.entryBoothPoint));
@@ -179,7 +179,7 @@ class AdvisorSearchPageState extends State<AdvisorSearchPage> {
                                 borderRadius: BorderRadius.circular(10), // Border radius para os itens
                               ),
                               child: Text(
-                                "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}\n-----\nAluno: ${item.students[0].name}",
+                                "Orientador: ${item.name}\n-----\nProjeto: ${item.projectName}",
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: isFound

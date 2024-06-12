@@ -7,31 +7,35 @@ class AdvisorRepoMock implements IAdvisorRepo {
     AdvisorEntity(
         id: 1,
         name: "Ana Paula",
-        students: [StudentEntity(name: "Lucas", boothNumber: 3, id: 3)],
         projectName:
-            "Um estudo sobre como jogos eletrônicos podem auxiliar no tratamento de ansiedade"),
+            "Um estudo sobre como jogos eletrônicos podem auxiliar no tratamento de ansiedade",
+            boothNumber: 1
+            ),
+            
     AdvisorEntity(
       id: 2,
       name: "Alex",
-      students: [StudentEntity(name: "Tiago", boothNumber: 2, id: 2)],
       projectName: "Fusão Nuclear: A energia do futuro",
+      boothNumber: 2
     ),
     AdvisorEntity(
         id: 3,
         name: "Rudolf",
-        students: [StudentEntity(name: "Victor", boothNumber: 1, id: 1)],
-        projectName: "Minerando Água na Lua"),
+        projectName: "Minerando Água na Lua",
+        boothNumber: 3
+        ),
     AdvisorEntity(
       id: 4,
       name: "Andréia",
-      students: [StudentEntity(name: "Marcos", boothNumber: 4, id: 4)],
       projectName: "Uma pesquisa sobre o Paradoxo de Fermi",
+      boothNumber: 4
     ),
     AdvisorEntity(
         id: 5,
         name: "Bossini",
-        students: [StudentEntity(name: "Débora", boothNumber: 5, id: 5)],
-        projectName: "A teoria da floresta negra"),
+        projectName: "A teoria da floresta negra",
+        boothNumber: 5
+        ),
   ];
 
   @override
