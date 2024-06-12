@@ -2,7 +2,7 @@ import 'package:projeto_integrador/Entities/StudentEntity.dart';
 import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
 
 class StudentRepoBack implements IStudentRepo {
-  Future<Map<String, dynamic>> MakeAGetRequestToAPI() {
+  Future<List<Map<String, dynamic>>> RequestAllStudentsToAPI() {
     // Aqui terá a lógica de fazer a requisição pra API
     // Instanciar um json com a resposta e retorná-lo
     throw UnimplementedError();
@@ -30,13 +30,12 @@ class StudentRepoBack implements IStudentRepo {
     }
     */
 
-    var response = await MakeAGetRequestToAPI();
-    var allStudentsJson = response['allStudents'];
+    var allStudentsJsonList = await RequestAllStudentsToAPI();
 
     List<StudentEntity> listToReturn = [];
 
-    for (var student in allStudentsJson) {
-      listToReturn.add(StudentEntity.FromJson(student as Map<String, dynamic>));
+    for (var student in allStudentsJsonList) {
+      listToReturn.add(StudentEntity.FromJson(student));
     }
 
     return Future.value(listToReturn);
