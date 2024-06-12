@@ -90,95 +90,46 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0A2E93),
-        title: Row(
-          children: [
-            const Spacer(),
-            const Padding(
-              padding: EdgeInsets.only(right: 100.0),
-              child: Text(
-                'EUREKA',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-            const Spacer(),
-          ],
+        centerTitle: true, // Centraliza o título
+        title: Text(
+          'EUREKA',
+          style: TextStyle(
+            fontFamily: 'Dongle',
+            fontSize: 36,
+            color: Colors.white,
+          ),
+        ),
+        iconTheme: const IconThemeData(
+          color: Colors.white, // Define a cor da seta de voltar como branca
         ),
       ),
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xFF0A2E93),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: const Text('Tela Inicial'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const SearchOptionsPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome do aluno'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const StudentSearchPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Pesquisa por nome de Orientador'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const AdvisorSearchPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Mapa'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapPage()),
-                );
-              },
-            ),
-          ],
-        ),
+      body: Stack(
+        children: [
+      // Imagem de fundo dimensionada
+      Positioned.fill(
+      child: Image.asset(
+        "assets/images/eureka4.jpg",
+        fit: BoxFit.cover,
       ),
-      body: Container(
-        color: Colors.lightBlueAccent,
-        child: Center(
-          child: Container(
-            width: 600,
-            height: 500,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 10,
-                  offset: Offset(0, 5),
-                ),
-              ],
-            ),
+    ),
+    // Conteúdo principal
+    Center(
+    child: Padding(
+    padding: const EdgeInsets.all(16.0), // Adiciona espaçamento ao redor do container
+    child: Container(
+    width: 600, // Largura do container
+    height: 500, // Altura do container
+    decoration: BoxDecoration(
+    color: Colors.white.withOpacity(0.9), // Transparência do fundo do container
+    borderRadius: BorderRadius.circular(20), // Define o border radius
+    boxShadow: const [
+    BoxShadow(
+    color: Colors.black26,
+    blurRadius: 10,
+    offset: Offset(0, 5),
+    ),
+    ],
+    ),
             child: Column(
               children: [
                 Padding(
@@ -217,11 +168,14 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
                                 padding: const EdgeInsets.all(16.0),
                                 margin:
                                     const EdgeInsets.symmetric(vertical: 8.0),
+                                decoration: BoxDecoration(
                                 color: item == _selectedItem
                                     ? Colors.lightBlueAccent
                                     : index.isOdd
                                         ? Colors.grey.shade200
                                         : Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                                 child: Text(
                                   item.projectName,
                                   style: TextStyle(
@@ -233,12 +187,14 @@ class ProjectSearchPageState extends State<ProjectSearchPage> {
                               ),
                             );
                           },
-                        ),
+                  ),
                 ),
               ],
             ),
-          ),
-        ),
+    ),
+    ),
+    ),
+        ],
       ),
     );
   }
