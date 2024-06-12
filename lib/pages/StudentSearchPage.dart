@@ -5,6 +5,7 @@ import 'package:projeto_integrador/PathFinding/AllBoothsMap.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
 import 'package:projeto_integrador/Repositories/RepositoryInjector.dart';
+import 'package:projeto_integrador/Repositories/StudentRepoBack.dart';
 import 'package:projeto_integrador/Widget/booth-widget.dart';
 import 'package:projeto_integrador/pages/MapPage.dart';
 import '';
