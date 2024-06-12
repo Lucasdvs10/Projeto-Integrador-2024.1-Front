@@ -1,11 +1,16 @@
+import 'dart:convert';
+
 import 'package:projeto_integrador/Entities/StudentEntity.dart';
 import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
+import 'package:http/http.dart' as http;
 
 class StudentRepoBack implements IStudentRepo {
-  Future<List<Map<String, dynamic>>> RequestAllStudentsToAPI() {
+  Future<List<Map<String, dynamic>>> RequestAllStudentsToAPI() async {
     // Aqui terá a lógica de fazer a requisição pra API
     // Instanciar um json com a resposta e retorná-lo
-    throw UnimplementedError();
+    var response = await http
+        .get(Uri.parse('http://192.168.100.157:8080/aluno/getAllAlunos'));
+    return await jsonDecode(response.body);
   }
 
   @override

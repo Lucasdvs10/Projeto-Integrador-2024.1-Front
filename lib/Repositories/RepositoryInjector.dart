@@ -7,7 +7,7 @@ import 'package:projeto_integrador/Repositories/StudentRepoBack.dart';
 import 'package:projeto_integrador/Repositories/StudentRepoMock.dart';
 
 class RepositoryInjector {
-  static const bool IS_TEST_ENVIROMENT = true;
+  static const bool IS_TEST_ENVIROMENT = false;
 
   static IProjectRepo GetProjectRepo() {
     if (IS_TEST_ENVIROMENT) {
