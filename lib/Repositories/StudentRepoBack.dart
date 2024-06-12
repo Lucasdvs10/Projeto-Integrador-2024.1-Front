@@ -10,7 +10,9 @@ class StudentRepoBack implements IStudentRepo {
     // Instanciar um json com a resposta e retorná-lo
     var response = await http
         .get(Uri.parse('http://192.168.100.157:8080/aluno/getAllAlunos'));
-    return (jsonDecode(response.body) as List).cast<Map<String, dynamic>>();
+    
+    var utf8Decoder = utf8.decode(response.bodyBytes);
+    return (jsonDecode(utf8Decoder) as List).cast<Map<String, dynamic>>();
   }
 
   @override
