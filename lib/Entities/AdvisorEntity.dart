@@ -8,4 +8,23 @@ class AdvisorEntity {
 
   AdvisorEntity(
       {required this.id, required this.name, required this.projectName, required this.boothNumber});
+
+  factory AdvisorEntity.FromProjectJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'idTrabalho' : int idTrabalho,
+        'tituloTrabalho': String tituloTrabalho,
+          "estande": {
+            "numEstande": int numEstande
+        },
+        "orientador":{
+          "nomeOrientador": String nomeOrientador,
+          "idOrientador": int idOrientador
+        }
+      } =>
+        AdvisorEntity(id: idOrientador, name: nomeOrientador, projectName: tituloTrabalho, boothNumber: numEstande
+        ),
+      _ => throw const FormatException('Failed to load Project Entity.'),
+    };
+  }
 }

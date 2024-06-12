@@ -1,4 +1,5 @@
 import 'package:projeto_integrador/Repositories/AdivsorRepoMock.dart';
+import 'package:projeto_integrador/Repositories/AdvisorRepoBack.dart';
 import 'package:projeto_integrador/Repositories/IAdvisorRepo.dart';
 import 'package:projeto_integrador/Repositories/IProjectRepo.dart';
 import 'package:projeto_integrador/Repositories/IStudentRepo.dart';
@@ -14,8 +15,6 @@ class RepositoryInjector {
     if (IS_TEST_ENVIROMENT) {
       return ProjectRepoMock();
     } else {
-      // return ProjectRepo(); //Retorna o repositorio real
-      //Todo: Fazer o repositório real
       return ProjectRepoBack();
     }
   }
@@ -24,8 +23,6 @@ class RepositoryInjector {
     if (IS_TEST_ENVIROMENT) {
       return StudentRepoMock();
     } else {
-      // return StudentRepo(); //Retorna o repositorio real
-      //Todo: Fazer o repositório real
       return StudentRepoBack();
     }
   }
@@ -34,9 +31,7 @@ class RepositoryInjector {
     if (IS_TEST_ENVIROMENT) {
       return AdvisorRepoMock();
     } else {
-      // return AdvisorRepo(); //Retorna o repositorio real
-      //Todo: Fazer o repositório real
-      return AdvisorRepoMock();
+      return AdvisorRepoBack();
     }
   }
 
