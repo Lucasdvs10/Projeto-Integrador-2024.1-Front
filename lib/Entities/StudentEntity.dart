@@ -8,12 +8,15 @@ class StudentEntity {
   factory StudentEntity.FromJson(Map<String, dynamic> json){
     return switch (json) {
       {
-        'id_aluno' : int idAluno,
-        'nome_aluno': String nomeAluno,
-        'ra_aluno': int raAluno,
-        'cur_aluno': String curAluno
+        'idAluno' : int idAluno,
+        'nomeAluno': String nomeAluno,
+        "trabalho":{
+          "estande": {
+            "numEstande": int numEstande
+          }
+        }
       } =>
-        StudentEntity(name: nomeAluno, boothNumber: 1, id: idAluno
+        StudentEntity(name: nomeAluno, boothNumber: numEstande, id: idAluno
 
         ),
       _ => throw const FormatException('Failed to load album.'),
