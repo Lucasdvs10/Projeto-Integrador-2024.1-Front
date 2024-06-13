@@ -54,7 +54,7 @@ class SearchOptionsPage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Colors.blueAccent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -63,11 +63,11 @@ class SearchOptionsPage extends StatelessWidget {
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.person, color: Colors.black, size: 40),
+                          Icon(Icons.person, color: Colors.white, size: 40),
                           SizedBox(height: 10),
                           Text(
                             'Nome do Aluno',
-                            style: TextStyle(fontSize: 16, color: Colors.black),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ],
                       ),
@@ -91,11 +91,11 @@ class SearchOptionsPage extends StatelessWidget {
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.assignment, color: Colors.black, size: 40),
+                          Icon(Icons.assignment, color: Colors.white, size: 40),
                           SizedBox(height: 10),
                           Text(
                             'Nome do Projeto',
-                            style: TextStyle(fontSize: 16, color: Colors.black),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ],
                       ),
@@ -110,7 +110,7 @@ class SearchOptionsPage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.yellow,
+                        backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -119,11 +119,11 @@ class SearchOptionsPage extends StatelessWidget {
                       child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.person_outline, color: Colors.black, size: 40),
+                          Icon(Icons.person_outline, color: Colors.white, size: 40),
                           SizedBox(height: 10),
                           Text(
                             'Nome do Orientador',
-                            style: TextStyle(fontSize: 16, color: Colors.black),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                         ],
                       ),
