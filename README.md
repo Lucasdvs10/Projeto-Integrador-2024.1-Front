@@ -25,9 +25,9 @@ O Eureka é uma aplicação criada para melhorar a experiência dos visitantes d
 ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 
 ## Equipe:
-Marcos Oliveira de Freitas | RA: 22.10277-9 |
-Tiago Hiray Hisatugo | RA: 22.10013-0 |
-Gabriel Silva Garcia | RA: 22.10232-9 |<https://github.com/Garcia-Gabriel>
-Lucas Duez | RA: 21.00306-8 |<https://github.com/Lucasdvs10>
-Victor Pregnolatto | RA: 21.00928-7 |<https://github.com/VCPregno>
+Marcos Oliveira de Freitas | RA: 22.10277-9 |<https://github.com/MarcosOlliveiraF>  
+Tiago Hiray Hisatugo | RA: 22.10013-0 |<https://github.com/TiagoHiray>  
+Gabriel Silva Garcia | RA: 22.10232-9 |<https://github.com/Garcia-Gabriel>  
+Lucas Duez | RA: 21.00306-8 |<https://github.com/Lucasdvs10>  
+Victor Pregnolatto | RA: 21.00928-7 |<https://github.com/VCPregno>  
 Débora Witkowski | RA: 22.10119-5 |<https://github.com/DebWit>
